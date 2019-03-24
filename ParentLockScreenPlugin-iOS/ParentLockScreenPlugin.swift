@@ -10,4 +10,19 @@ import ZappPlugins
 
 class ParentLockScreenPlugin: UIViewController,ZPPluggableScreenProtocol {
     
+    var screenPluginDelegate: ZPPlugableScreenDelegate?
+    var pluginModel: ZPPluginModel?
+    var screenModel: ZLScreenModel?
+    var dataSourceModel: NSObject?
+    
+    required init?(pluginModel: ZPPluginModel, screenModel: ZLScreenModel, dataSourceModel: NSObject?) {
+        super.init(nibName: "ParentLockScreenPluginVC", bundle: Bundle(for: type(of: self)))
+        self.pluginModel = pluginModel
+        self.screenModel = screenModel
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }

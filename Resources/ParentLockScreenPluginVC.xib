@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GANumberLockViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParentLockScreenPluginVC" customModule="ParentLockScreenPlugin_iOS" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundImageView" destination="xf8-Nf-JqE" id="p0m-WM-sZO"/>
-                <outlet property="closeButton" destination="K9O-Qn-pqZ" id="at6-lg-yWn"/>
-                <outlet property="closeView" destination="Mli-ab-xKB" id="ZMq-mu-1ur"/>
-                <outlet property="dotsContainerView" destination="z58-YP-xUI" id="vOW-ig-JMT"/>
-                <outlet property="infoLabel" destination="od3-G7-wAq" id="KrL-of-xIA"/>
-                <outlet property="numberLockView" destination="0Is-o4-kYM" id="CIk-nz-6mZ"/>
+                <outlet property="RandomNumbersLabel" destination="kIc-VC-4IB" id="gQU-Rq-0Yz"/>
+                <outlet property="backgroundImageView" destination="xf8-Nf-JqE" id="QkM-GW-dih"/>
+                <outlet property="closeButton" destination="K9O-Qn-pqZ" id="qBY-T3-6gL"/>
+                <outlet property="closeView" destination="Mli-ab-xKB" id="KDQ-9o-wyO"/>
+                <outlet property="dotsContainerView" destination="z58-YP-xUI" id="icf-6H-TIW"/>
+                <outlet property="infoLabel" destination="od3-G7-wAq" id="sHe-9F-H1P"/>
+                <outlet property="numberLuckView" destination="0Is-o4-kYM" id="Fz9-r9-f7a"/>
                 <outlet property="randomNumbersLabel" destination="kIc-VC-4IB" id="xWY-ut-Jie"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outletCollection property="dotImagesCollection" destination="nL6-EO-P1M" id="Hp9-lS-mCr"/>
-                <outletCollection property="dotImagesCollection" destination="JjK-yt-Lvn" id="e9c-XN-6ot"/>
-                <outletCollection property="dotImagesCollection" destination="jmE-We-zPl" id="bF4-Sy-Tll"/>
-                <outletCollection property="numberButtonsCollection" destination="JBS-7H-Qsx" id="yTw-BW-Fa2"/>
-                <outletCollection property="numberButtonsCollection" destination="522-Mh-npd" id="Yyi-Vs-bDJ"/>
-                <outletCollection property="numberButtonsCollection" destination="zkY-x4-7J8" id="23d-eY-2nY"/>
-                <outletCollection property="numberButtonsCollection" destination="sPa-1r-UCq" id="cq0-yQ-oAz"/>
-                <outletCollection property="numberButtonsCollection" destination="lPj-cZ-i38" id="aum-GJ-JfB"/>
-                <outletCollection property="numberButtonsCollection" destination="1x2-0D-ojQ" id="SnJ-Fo-Rc6"/>
-                <outletCollection property="numberButtonsCollection" destination="Il1-ut-s05" id="I1I-cW-qFJ"/>
-                <outletCollection property="numberButtonsCollection" destination="SFO-hM-Ttf" id="gr7-jN-CQx"/>
-                <outletCollection property="numberButtonsCollection" destination="UtI-Yh-ykf" id="yXm-N0-KiN"/>
+                <outletCollection property="dotImagesCollection" destination="nL6-EO-P1M" collectionClass="NSMutableArray" id="Hp9-lS-mCr"/>
+                <outletCollection property="dotImagesCollection" destination="JjK-yt-Lvn" collectionClass="NSMutableArray" id="e9c-XN-6ot"/>
+                <outletCollection property="dotImagesCollection" destination="jmE-We-zPl" collectionClass="NSMutableArray" id="bF4-Sy-Tll"/>
+                <outletCollection property="numberButtonsCollection" destination="JBS-7H-Qsx" collectionClass="NSMutableArray" id="yTw-BW-Fa2"/>
+                <outletCollection property="numberButtonsCollection" destination="522-Mh-npd" collectionClass="NSMutableArray" id="Yyi-Vs-bDJ"/>
+                <outletCollection property="numberButtonsCollection" destination="zkY-x4-7J8" collectionClass="NSMutableArray" id="23d-eY-2nY"/>
+                <outletCollection property="numberButtonsCollection" destination="sPa-1r-UCq" collectionClass="NSMutableArray" id="cq0-yQ-oAz"/>
+                <outletCollection property="numberButtonsCollection" destination="lPj-cZ-i38" collectionClass="NSMutableArray" id="aum-GJ-JfB"/>
+                <outletCollection property="numberButtonsCollection" destination="1x2-0D-ojQ" collectionClass="NSMutableArray" id="SnJ-Fo-Rc6"/>
+                <outletCollection property="numberButtonsCollection" destination="Il1-ut-s05" collectionClass="NSMutableArray" id="I1I-cW-qFJ"/>
+                <outletCollection property="numberButtonsCollection" destination="SFO-hM-Ttf" collectionClass="NSMutableArray" id="gr7-jN-CQx"/>
+                <outletCollection property="numberButtonsCollection" destination="UtI-Yh-ykf" collectionClass="NSMutableArray" id="yXm-N0-KiN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -46,13 +45,13 @@
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-o4-kYM" userLabel="ParentLock view">
-                    <rect key="frame" x="72" y="2" width="425" height="315"/>
+                    <rect key="frame" x="71.5" y="2" width="425" height="315"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-Nf-JqE" userLabel="background image view" customClass="APImageView">
                             <rect key="frame" x="0.0" y="0.0" width="425" height="315"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOi-Fo-Ftq" userLabel="Container View">
-                            <rect key="frame" x="60" y="64" width="305" height="186"/>
+                            <rect key="frame" x="60" y="64" width="305" height="187"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9O-Qn-pqZ" userLabel="Close Button">
@@ -65,11 +64,11 @@
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="handleUserPushCloseButton:" destination="-1" eventType="touchUpInside" id="QeB-wf-OZ1"/>
+                                <action selector="handleUserPushCloseButton:" destination="-1" eventType="touchUpInside" id="qOi-iY-4dv"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od3-G7-wAq" userLabel="InfoLabel">
-                            <rect key="frame" x="97" y="61.5" width="230" height="17"/>
+                            <rect key="frame" x="97.5" y="61.5" width="230" height="17"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="230" id="X40-ZF-CmO"/>
@@ -80,7 +79,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-VC-4IB" userLabel="Random Number Label">
-                            <rect key="frame" x="97" y="78.5" width="230" height="17"/>
+                            <rect key="frame" x="97.5" y="78.5" width="230" height="17"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="230" id="cRg-bB-0cJ"/>
@@ -91,7 +90,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z58-YP-xUI" userLabel="DotsView">
-                            <rect key="frame" x="195" y="102.5" width="34" height="10"/>
+                            <rect key="frame" x="195.5" y="102.5" width="34" height="10"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nL6-EO-P1M" userLabel="dot1" customClass="APImageView">
                                     <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
@@ -128,7 +127,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqL-Lu-nqW" userLabel="number buttons">
-                            <rect key="frame" x="145" y="120.5" width="134" height="134"/>
+                            <rect key="frame" x="145.5" y="120.5" width="134" height="134"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-7H-Qsx" userLabel="1 button">
                                     <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
@@ -141,7 +140,7 @@
                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="06e-dz-JO0"/>
+                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="7VQ-kw-RQs"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="522-Mh-npd" userLabel="2 button">
@@ -317,7 +316,7 @@
                 <constraint firstAttribute="bottom" secondItem="0Is-o4-kYM" secondAttribute="bottom" constant="3" id="ubq-lG-gtt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="626" y="366"/>
+            <point key="canvasLocation" x="1001.6" y="329.2353823088456"/>
         </view>
     </objects>
 </document>
