@@ -1,20 +1,19 @@
 Pod::Spec.new do |s|
-  s.name             = "KantarMediaWaterDetection"
+  s.name             = "ParentLockScreenPlugin-iOS"
   s.version          = '1.0.0'
-  s.summary          = "KantarMediaWaterDetection"
+  s.summary          = "ParentLockScreenPlugin"
   s.description      = <<-DESC
-                        plugin that provides Kantar Media's API to process whatermarking detection.
+                        plugin that provides a parent Validation before entering a specific area.
                        DESC
-  s.homepage         = "https://github.com/applicaster/KantarMediaWaterDetection"
+  s.homepage         = "https://github.com/applicaster-plugins/ParentLockScreenPlugin-iOS"
   s.license          = 'CMPS'
   s.author           = { "cmps" => "r.kedarya@applicaster.com" }
-  s.source           = { :git => "git@github.com:applicaster/KantarMediaWaterDetection.git", :tag => s.version.to_s }
+  s.source           = { :git => "git@github.com:applicaster-plugins/ParentLockScreenPlugin-iOS.git", :tag => s.version.to_s }
   s.platform     = :ios, '9.0'
   s.requires_arc = true
   
-  s.vendored_frameworks = 'Frameworks/SyncNowDetectoriOS.framework'
-  s.public_header_files = 'KantarMediaWaterDetection/**/*.h'
-  s.source_files = 'KantarMediaWaterDetection/**/*.{h,m,swift}'
+  s.public_header_files = 'ParentLockScreenPlugin-iOS/**/*.h'
+  s.source_files = 'ParentLockScreenPlugin-iOS/**/*.{h,m,swift}'
 
 
   s.resources = [
@@ -28,4 +27,5 @@ Pod::Spec.new do |s|
                 }
 
   s.dependency 'ZappPlugins'
+  s.dependency 'ApplicasterSDK'
 end

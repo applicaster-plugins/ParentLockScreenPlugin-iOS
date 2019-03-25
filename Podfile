@@ -10,7 +10,7 @@ def base_pods
   pod 'ZappPlugins'
 end
 
-target 'ParentLockScreenPlugin' do
+target 'ParentLockScreenPlugin-iOS' do
   base_pods
 end
 
