@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		23A1E3302243B6E10071ECE2 /* ParentLockScreenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1E32F2243B6E10071ECE2 /* ParentLockScreenPlugin.swift */; };
+		23A1E33B224917200071ECE2 /* ParentLockScreenPluginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A1E339224917200071ECE2 /* ParentLockScreenPluginVC.xib */; };
+		23A1E33C224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A1E33A224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib */; };
+		23A1E33E224917710071ECE2 /* ParentLockScreenPluginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1E33D224917710071ECE2 /* ParentLockScreenPluginVC.swift */; };
 		23E688DC224132EA00315451 /* ParentLockScreenPlugin_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E688D2224132EA00315451 /* ParentLockScreenPlugin_iOS.framework */; };
 		23E688E1224132EA00315451 /* ParentLockScreenPlugin_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E688E0224132EA00315451 /* ParentLockScreenPlugin_iOSTests.swift */; };
 		23E688E3224132EA00315451 /* ParentLockScreenPlugin_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 23E688D5224132EA00315451 /* ParentLockScreenPlugin_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		23A1E32F2243B6E10071ECE2 /* ParentLockScreenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentLockScreenPlugin.swift; sourceTree = "<group>"; };
+		23A1E339224917200071ECE2 /* ParentLockScreenPluginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParentLockScreenPluginVC.xib; sourceTree = "<group>"; };
+		23A1E33A224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ParentLockScreenPluginVC~ipad.xib"; sourceTree = "<group>"; };
+		23A1E33D224917710071ECE2 /* ParentLockScreenPluginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentLockScreenPluginVC.swift; sourceTree = "<group>"; };
 		23E688D2224132EA00315451 /* ParentLockScreenPlugin_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ParentLockScreenPlugin_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23E688D5224132EA00315451 /* ParentLockScreenPlugin_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParentLockScreenPlugin_iOS.h; sourceTree = "<group>"; };
 		23E688D6224132EA00315451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,11 +58,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23A1E338224917200071ECE2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				23A1E339224917200071ECE2 /* ParentLockScreenPluginVC.xib */,
+				23A1E33A224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		23E688C8224132EA00315451 = {
 			isa = PBXGroup;
 			children = (
 				23E688D4224132EA00315451 /* ParentLockScreenPlugin-iOS */,
 				23E688DF224132EA00315451 /* ParentLockScreenPlugin-iOSTests */,
+				23A1E338224917200071ECE2 /* Resources */,
 				23E688D3224132EA00315451 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +91,7 @@
 			children = (
 				23E688D5224132EA00315451 /* ParentLockScreenPlugin_iOS.h */,
 				23A1E32F2243B6E10071ECE2 /* ParentLockScreenPlugin.swift */,
+				23A1E33D224917710071ECE2 /* ParentLockScreenPluginVC.swift */,
 				23E688D6224132EA00315451 /* Info.plist */,
 			);
 			path = "ParentLockScreenPlugin-iOS";
@@ -181,6 +198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A1E33B224917200071ECE2 /* ParentLockScreenPluginVC.xib in Resources */,
+				23A1E33C224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A1E33E224917710071ECE2 /* ParentLockScreenPluginVC.swift in Sources */,
 				23A1E3302243B6E10071ECE2 /* ParentLockScreenPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
