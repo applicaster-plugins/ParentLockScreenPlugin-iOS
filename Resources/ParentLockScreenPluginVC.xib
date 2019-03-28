@@ -4,20 +4,21 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParentLockScreenPluginVC" customModule="ParentLockScreenPlugin_iOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParentLockScreenPluginVC" customModule="ParentLockScreenPlugin" customModuleProvider="target">
             <connections>
-                <outlet property="RandomNumbersLabel" destination="kIc-VC-4IB" id="gQU-Rq-0Yz"/>
                 <outlet property="backgroundImageView" destination="xf8-Nf-JqE" id="QkM-GW-dih"/>
                 <outlet property="closeButton" destination="K9O-Qn-pqZ" id="qBY-T3-6gL"/>
                 <outlet property="closeView" destination="Mli-ab-xKB" id="KDQ-9o-wyO"/>
                 <outlet property="dotsContainerView" destination="z58-YP-xUI" id="icf-6H-TIW"/>
                 <outlet property="infoLabel" destination="od3-G7-wAq" id="sHe-9F-H1P"/>
-                <outlet property="numberLuckView" destination="0Is-o4-kYM" id="Fz9-r9-f7a"/>
-                <outlet property="randomNumbersLabel" destination="kIc-VC-4IB" id="xWY-ut-Jie"/>
+                <outlet property="numberLuckView" destination="0Is-o4-kYM" id="f9W-Gf-ZDu"/>
+                <outlet property="randomNumbersLabel" destination="kIc-VC-4IB" id="Oeb-FE-VUj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="IVM-uh-8xH"/>
                 <outletCollection property="dotImagesCollection" destination="nL6-EO-P1M" collectionClass="NSMutableArray" id="Hp9-lS-mCr"/>
                 <outletCollection property="dotImagesCollection" destination="JjK-yt-Lvn" collectionClass="NSMutableArray" id="e9c-XN-6ot"/>
                 <outletCollection property="dotImagesCollection" destination="jmE-We-zPl" collectionClass="NSMutableArray" id="bF4-Sy-Tll"/>

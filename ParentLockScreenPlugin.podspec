@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = "ParentLockScreenPlugin-iOS"
+  s.name             = "ParentLockScreenPlugin"
   s.version          = '1.0.0'
   s.summary          = "ParentLockScreenPlugin"
   s.description      = <<-DESC

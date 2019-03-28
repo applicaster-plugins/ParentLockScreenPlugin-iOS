@@ -4,19 +4,20 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParentLockScreenPluginVC" customModule="ParentLockScreenPlugin_iOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParentLockScreenPluginVC" customModule="ParentLockScreenPlugin" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImageView" destination="xf8-Nf-JqE" id="p0m-WM-sZO"/>
                 <outlet property="closeButton" destination="K9O-Qn-pqZ" id="at6-lg-yWn"/>
                 <outlet property="closeView" destination="Mli-ab-xKB" id="ZMq-mu-1ur"/>
                 <outlet property="dotsContainerView" destination="z58-YP-xUI" id="vOW-ig-JMT"/>
                 <outlet property="infoLabel" destination="od3-G7-wAq" id="KrL-of-xIA"/>
-                <outlet property="numberLockView" destination="0Is-o4-kYM" id="iLh-SO-DE9"/>
-                <outlet property="randomNumbersLabel" destination="pF4-Ky-OjF" id="NID-pm-p8x"/>
+                <outlet property="numberLuckView" destination="0Is-o4-kYM" id="qdt-Lj-n60"/>
+                <outlet property="randomNumbersLabel" destination="pF4-Ky-OjF" id="DAL-no-TLu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="dotImagesCollection" destination="nL6-EO-P1M" collectionClass="NSMutableArray" id="Hp9-lS-mCr"/>
                 <outletCollection property="dotImagesCollection" destination="JjK-yt-Lvn" collectionClass="NSMutableArray" id="e9c-XN-6ot"/>
