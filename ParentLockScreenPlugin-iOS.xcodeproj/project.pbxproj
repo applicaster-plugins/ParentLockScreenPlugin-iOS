@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23A1E3302243B6E10071ECE2 /* ParentLockScreenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1E32F2243B6E10071ECE2 /* ParentLockScreenPlugin.swift */; };
+		239D7E7F22512AFF000D60B6 /* StylesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239D7E7E22512AFF000D60B6 /* StylesHelper.swift */; };
 		23A1E33B224917200071ECE2 /* ParentLockScreenPluginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A1E339224917200071ECE2 /* ParentLockScreenPluginVC.xib */; };
 		23A1E33C224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23A1E33A224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib */; };
 		23A1E33E224917710071ECE2 /* ParentLockScreenPluginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A1E33D224917710071ECE2 /* ParentLockScreenPluginVC.swift */; };
@@ -27,7 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		23A1E32F2243B6E10071ECE2 /* ParentLockScreenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentLockScreenPlugin.swift; sourceTree = "<group>"; };
+		239D7E7E22512AFF000D60B6 /* StylesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StylesHelper.swift; sourceTree = "<group>"; };
 		23A1E339224917200071ECE2 /* ParentLockScreenPluginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParentLockScreenPluginVC.xib; sourceTree = "<group>"; };
 		23A1E33A224917200071ECE2 /* ParentLockScreenPluginVC~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ParentLockScreenPluginVC~ipad.xib"; sourceTree = "<group>"; };
 		23A1E33D224917710071ECE2 /* ParentLockScreenPluginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentLockScreenPluginVC.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				23E688D5224132EA00315451 /* ParentLockScreenPlugin_iOS.h */,
-				23A1E32F2243B6E10071ECE2 /* ParentLockScreenPlugin.swift */,
+				239D7E7E22512AFF000D60B6 /* StylesHelper.swift */,
 				23A1E33D224917710071ECE2 /* ParentLockScreenPluginVC.swift */,
 				23E688D6224132EA00315451 /* Info.plist */,
 			);
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23A1E33E224917710071ECE2 /* ParentLockScreenPluginVC.swift in Sources */,
-				23A1E3302243B6E10071ECE2 /* ParentLockScreenPlugin.swift in Sources */,
+				239D7E7F22512AFF000D60B6 /* StylesHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

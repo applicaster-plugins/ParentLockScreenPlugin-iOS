@@ -11,27 +11,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ParentLockScreenPluginVC" customModule="ParentLockScreenPlugin" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundImageView" destination="xf8-Nf-JqE" id="p0m-WM-sZO"/>
+                <outlet property="backgroundImageView" destination="Mli-ab-xKB" id="WEn-ln-JI3"/>
                 <outlet property="closeButton" destination="K9O-Qn-pqZ" id="at6-lg-yWn"/>
-                <outlet property="closeView" destination="Mli-ab-xKB" id="ZMq-mu-1ur"/>
                 <outlet property="dotsContainerView" destination="z58-YP-xUI" id="vOW-ig-JMT"/>
                 <outlet property="infoLabel" destination="od3-G7-wAq" id="KrL-of-xIA"/>
+                <outlet property="numberButtonsContainer" destination="JqL-Lu-nqW" id="Qbw-vz-yaN"/>
                 <outlet property="numberLuckView" destination="0Is-o4-kYM" id="qdt-Lj-n60"/>
                 <outlet property="randomNumbersLabel" destination="pF4-Ky-OjF" id="DAL-no-TLu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="dotImagesCollection" destination="nL6-EO-P1M" collectionClass="NSMutableArray" id="Hp9-lS-mCr"/>
                 <outletCollection property="dotImagesCollection" destination="JjK-yt-Lvn" collectionClass="NSMutableArray" id="e9c-XN-6ot"/>
                 <outletCollection property="dotImagesCollection" destination="jmE-We-zPl" collectionClass="NSMutableArray" id="bF4-Sy-Tll"/>
-                <outletCollection property="numberButtonsCollection" destination="JBS-7H-Qsx" collectionClass="NSMutableArray" id="yTw-BW-Fa2"/>
-                <outletCollection property="numberButtonsCollection" destination="522-Mh-npd" collectionClass="NSMutableArray" id="Yyi-Vs-bDJ"/>
-                <outletCollection property="numberButtonsCollection" destination="zkY-x4-7J8" collectionClass="NSMutableArray" id="23d-eY-2nY"/>
-                <outletCollection property="numberButtonsCollection" destination="sPa-1r-UCq" collectionClass="NSMutableArray" id="cq0-yQ-oAz"/>
-                <outletCollection property="numberButtonsCollection" destination="lPj-cZ-i38" collectionClass="NSMutableArray" id="aum-GJ-JfB"/>
-                <outletCollection property="numberButtonsCollection" destination="1x2-0D-ojQ" collectionClass="NSMutableArray" id="SnJ-Fo-Rc6"/>
-                <outletCollection property="numberButtonsCollection" destination="Il1-ut-s05" collectionClass="NSMutableArray" id="I1I-cW-qFJ"/>
-                <outletCollection property="numberButtonsCollection" destination="SFO-hM-Ttf" collectionClass="NSMutableArray" id="gr7-jN-CQx"/>
-                <outletCollection property="numberButtonsCollection" destination="UtI-Yh-ykf" collectionClass="NSMutableArray" id="yXm-N0-KiN"/>
-                <outletCollection property="numberButtonsCollection" destination="JqL-Lu-nqW" collectionClass="NSMutableArray" id="BMK-td-1zW"/>
                 <outletCollection property="dotImagesCollection" destination="z58-YP-xUI" collectionClass="NSMutableArray" id="Zqe-OK-QPK"/>
             </connections>
         </placeholder>
@@ -40,12 +30,9 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mli-ab-xKB" userLabel="close view" customClass="UIControl">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mli-ab-xKB" userLabel="Background Image View" customClass="APImageView">
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <connections>
-                        <action selector="handleUserPushCloseButton:" destination="-1" eventType="touchUpInside" id="vdt-HI-dZz"/>
-                    </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-o4-kYM" userLabel="ParentLock view">
                     <rect key="frame" x="108" y="84" width="808" height="599"/>
@@ -112,7 +99,7 @@
                                 <constraint firstItem="nL6-EO-P1M" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="top" id="vuT-ET-Fcq"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqL-Lu-nqW" userLabel="number buttons">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqL-Lu-nqW" userLabel="numberButtonsContainer">
                             <rect key="frame" x="270" y="213" width="268" height="268"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-7H-Qsx" userLabel="1 button">

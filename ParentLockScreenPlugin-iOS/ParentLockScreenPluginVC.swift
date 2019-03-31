@@ -19,11 +19,12 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     var generatedValues: [String]
     var enterdValues: [String]
     var vlidationType: String?
-    var pluginConfig: [String : Any]?
+    var pluginGeneralSettings: [String : Any]?
     var pluginStyles: [String : Any]?
     let NumbersDictionary = ["1":"One","2":"Two","3":"Three","4":"Four","5":"Five","6":"Six","7":"Seven","8":"Eight","9":"Nine"]
     let localizationDelegate: ZAAppDelegateConnectorLocalizationProtocol
     let ParentLockScreenNumberLimit = 3;
+    let cornerRadius: CGFloat = 0.5;
     
     @IBOutlet weak var closeView: UIControl!
     @IBOutlet weak var numberLuckView: UIView!
@@ -34,19 +35,23 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     @IBOutlet weak var dotsContainerView: UIView!
     @IBOutlet var dotImagesCollection: [APImageView]!
     @IBOutlet var numberButtonsCollection: [UIButton]!
-    
+    @IBOutlet weak var numberButtonsContainer: UIView!
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         generatedValues = []
         enterdValues = []
         isVlidated = false
         localizationDelegate = ZAAppConnector.sharedInstance().localizationDelegate
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        configureScreenUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         generateValues()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureScreenUI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,7 +61,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     
     required convenience init?(pluginModel: ZPPluginModel, screenModel: ZLScreenModel, dataSourceModel: NSObject?) {
         self.init(nibName: "ParentLockScreenPluginVC", bundle: Bundle(for: type(of: self)))
-        pluginConfig = screenModel.general
+        pluginGeneralSettings = screenModel.general
         if let styles = screenModel.style {
             pluginStyles = styles.object
         }
@@ -67,55 +72,57 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     }
     
     func setNumberButtons() {
-        UIButton.normalColor = UIColor.clear
-        UIButton.highlightedColor = UIColor.purple
         for button in numberButtonsCollection {
-            button.layer.cornerRadius = 0.5 * button.bounds.size.width
+            button.layer.cornerRadius = cornerRadius * button.bounds.size.width
             button.clipsToBounds = true
-            button.layer.borderColor = UIColor.yellow.cgColor
             button.layer.borderWidth = 2
             if let pluginStyles = pluginStyles {
+                button.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
                 StylesHelper.setFontforButton(button: button, fontNameKey: "font", fontSizeKey: "number_font_size", from: pluginStyles)
-                StylesHelper.setColorforButton(button: button, key: "number_buttons_title_color", state: .normal, from: pluginStyles)
-                StylesHelper.setColorforButton(button: button, key: "number_buttons_title_color_selected", state: .highlighted, from: pluginStyles)
+                UIButton.normalBackgroundColor = StylesHelper.getColorForKey(key: "number_color", from: pluginStyles)
+                UIButton.highlighteBackgroudColor = StylesHelper.getColorForKey(key: "number_color_pressed", from: pluginStyles)
             }
             if let buttonNumber = numberButtonsCollection.firstIndex(of: button) {
                 button.setTitle(String(buttonNumber + 1), for: .normal)
+                button.isHidden = numberOfValidationDigitsToPresent() > buttonNumber ? false : true
             }
         }
     }
     
     func configureScreenUI() {
+        setIndicatorsToMainColor()
         setNumberButtons()
-        if let pluginStyles = pluginStyles {
-            if let backgroundImage = pluginStyles["background_image"] as? String {
-                
-            } else if let backgroundColor = pluginStyles["background_color"] as? String {
-                let screenBackgroundColor = UIColor(hex: backgroundColor)
+        if let pluginGeneralSettings = pluginGeneralSettings {
+            if let screenBackgroundImageString = pluginGeneralSettings["background_image"] as? String {
+                if let screenBackgroundImageUrl = URL.init(string: screenBackgroundImageString) {
+                self.backgroundImageView.setImageWith(screenBackgroundImageUrl)
+                }
+            } else {
+                let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
                 self.numberLuckView.backgroundColor = screenBackgroundColor
             }
-            if let pluginConfig = pluginConfig,
-                let closeButtonImageString = pluginConfig["close_button"] as? String {
-                let closeImage = UIImage.init(named: closeButtonImageString)
-                self.closeButton.setImage(closeImage, for: .normal)
+            if let closeButtonImageString = pluginGeneralSettings["close_button"] as? String,
+                let closeButtonImageUrl = URL.init(string: closeButtonImageString),
+                let imageView = closeButton.imageView {
+                ZAAppConnector.sharedInstance().imageDelegate.setImage(to: imageView, url: closeButtonImageUrl, placeholderImage: nil)
             }
         }
     }
     
     func setInfoLabel() {
         if let pluginStyles = pluginStyles {
-            StylesHelper.setFontforLabel(label: self.infoLabel, fontNameKey: "font", fontSizeKey: <#T##String#>, from: <#T##[String : Any]?#>)
+            StylesHelper.setFontforLabel(label: self.infoLabel, fontNameKey: "font", fontSizeKey: "call_for_action_text_font_size", from: pluginStyles)
+            StylesHelper.setColorforLabel(label: self.infoLabel, key: "call_for_action_text_color", from: pluginStyles)
         }
+        infoLabel.text = localizationDelegate.localizationString(byKey: "NumbersLockInstructionsLocalizationKey", defaultString: "")
     }
     
     func numberOfValidationDigitsToPresent() -> Int {
         let defaultNumberOfValidationDigits = 3;
         var validationDigits:Int = 3;
-        if let pluginConfig = pluginConfig,
-            let numberOfValidationButtons = pluginConfig["validation_flow_type"] as? String {
+        if let pluginGeneralSettings = pluginGeneralSettings,
+            let numberOfValidationButtons = pluginGeneralSettings["validation_flow_type"] as? String {
             validationDigits = Int(numberOfValidationButtons) ?? defaultNumberOfValidationDigits
-        } else {
-            validationDigits = 9
         }
         return validationDigits
     }
@@ -132,7 +139,10 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
                 }
             }
         }
+        //set text font font size size and color
         randomNumbersLabel.text = generatedValuesLocalizedArray.joined(separator: ", ")
+        StylesHelper.setColorforLabel(label: randomNumbersLabel, key: "random_numbers_color", from: pluginStyles)
+        StylesHelper.setFontforLabel(label: randomNumbersLabel, fontNameKey: "font", fontSizeKey: "random_numbers_font_size", from: pluginStyles)
     }
     
     @IBAction func handleUserPushCloseButton(_ sender: UIButton) {
@@ -141,30 +151,61 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     
     @IBAction func handleUserPushNumberButton(_ sender: UIButton) {
         if let number = self.numberButtonsCollection.firstIndex(of: sender) {
+            updateIndicatorAtIndex(index: enterdValues.count)
             enterdValues.append(String(number + 1))
             if enterdValues.count == ParentLockScreenNumberLimit {
                 if enterdValues == generatedValues {
                     self.isVlidated = true
+                    self.dismiss(animated: true) {
+                        //send notification of successfull login
+                    }
                 } else {
-                    enterdValues.removeAll()
+                    generatedValues.removeAll()
+                    generateValues()
                 }
+                enterdValues.removeAll()
+                clearValidationIndicators()
             }
         }
     }
     
+    func clearValidationIndicators() {
+        if let pluginGeneralSettings = pluginGeneralSettings {
+            for dot in dotImagesCollection {
+                dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_main_color", from: pluginGeneralSettings)
+            }
+        }
+    }
+    
+    func setIndicatorsToMainColor() {
+        for dot in dotImagesCollection {
+            dot.layer.cornerRadius = cornerRadius * dot.bounds.size.width
+            dot.clipsToBounds = true
+            dot.layer.borderWidth = 1
+            dot.layer.borderColor = UIColor.yellow.cgColor
+        }
+        clearValidationIndicators()
+    }
+    
+    func updateIndicatorAtIndex(index:Int) {
+        if let pluginGeneralSettings = pluginGeneralSettings {
+            let dot = self.dotImagesCollection[index]
+            dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_secondary_color", from: pluginGeneralSettings)
+        }
+    }
 }
 
 extension UIButton {
-    
-    public static var normalColor:UIColor?
-    public static var highlightedColor:UIColor?
-    
+
+    public static var normalBackgroundColor:UIColor?
+    public static var highlighteBackgroudColor:UIColor?
+
     override open var isHighlighted: Bool {
         didSet {
-            if let normalColor = UIButton.normalColor, let highlightedColor = UIButton.highlightedColor {
-                backgroundColor = isHighlighted ? highlightedColor : normalColor
+            if let normalBackgroundColor = UIButton.normalBackgroundColor, let highlighteBackgroudColor = UIButton.highlighteBackgroudColor {
+                backgroundColor = isHighlighted ? highlighteBackgroudColor : normalBackgroundColor
             } else {
-                backgroundColor = isHighlighted ? UIColor.black : UIColor.white
+                backgroundColor =  UIColor.clear
             }
         }
     }

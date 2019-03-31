@@ -2,7 +2,7 @@
 //  StylesHelper.swift
 //  ParentLockScreenPlugin
 //
-//  Created by Roi Kedarya on 28/03/2019.
+//  Created by Miri Vecselboim on 28/03/2019.
 //
 
 import Foundation
@@ -19,12 +19,12 @@ class StylesHelper: NSObject {
         }
     }
     
-    public static func setColorforButton(button: UIButton, key:String, state:UIControl.State ,from dictionary:[String : Any]?) {
+    public static func setColorforButton(button: UIButton, key:String,from dictionary:[String : Any]?) {
         if let dictionary = dictionary,
             let argbString = dictionary[key] as? String,
             !argbString.isEmptyOrWhitespace() {
             let color = UIColor(argbHexString: argbString)
-            button.setTitleColor(color, for: state)
+            button.setTitleColor(color, for: .normal)
             
         }
     }
@@ -61,6 +61,19 @@ class StylesHelper: NSObject {
             font = tempFont
         }
         button.titleLabel?.font = font
+    }
+    
+    public static func getColorForKey(key:String, from dictionary:[String : Any]?) -> UIColor {
+        var color:UIColor
+        if let dictionary = dictionary,
+            !key.isEmptyOrWhitespace(),
+            let HexString = dictionary[key] as? String,
+            !HexString.isEmptyOrWhitespace(){
+            color = UIColor(hex: HexString)
+        } else {
+            color = UIColor.clear
+        }
+        return color
     }
     
 }
