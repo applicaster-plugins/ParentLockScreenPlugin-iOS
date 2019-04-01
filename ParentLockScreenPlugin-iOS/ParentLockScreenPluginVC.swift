@@ -72,6 +72,8 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     }
     
     func setNumberButtons() {
+        UIButton.normalBackgroundColor = StylesHelper.getColorForKey(key: "number_color", from: pluginStyles)
+        UIButton.highlighteBackgroudColor = StylesHelper.getColorForKey(key: "number_color_pressed", from: pluginStyles)
         for button in numberButtonsCollection {
             button.layer.cornerRadius = cornerRadius * button.bounds.size.width
             button.clipsToBounds = true
@@ -79,8 +81,6 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
             if let pluginStyles = pluginStyles {
                 button.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
                 StylesHelper.setFontforButton(button: button, fontNameKey: "font", fontSizeKey: "number_font_size", from: pluginStyles)
-                UIButton.normalBackgroundColor = StylesHelper.getColorForKey(key: "number_color", from: pluginStyles)
-                UIButton.highlighteBackgroudColor = StylesHelper.getColorForKey(key: "number_color_pressed", from: pluginStyles)
             }
             if let buttonNumber = numberButtonsCollection.firstIndex(of: button) {
                 button.setTitle(String(buttonNumber + 1), for: .normal)
@@ -99,7 +99,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
                 }
             } else {
                 let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
-                self.numberLuckView.backgroundColor = screenBackgroundColor
+                self.backgroundImageView.backgroundColor = screenBackgroundColor
             }
             if let closeButtonImageString = pluginGeneralSettings["close_button"] as? String,
                 let closeButtonImageUrl = URL.init(string: closeButtonImageString),
@@ -182,7 +182,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
             dot.layer.cornerRadius = cornerRadius * dot.bounds.size.width
             dot.clipsToBounds = true
             dot.layer.borderWidth = 1
-            dot.layer.borderColor = UIColor.yellow.cgColor
+            dot.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
         }
         clearValidationIndicators()
     }
