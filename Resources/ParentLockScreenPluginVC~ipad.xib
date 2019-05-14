@@ -13,16 +13,25 @@
             <connections>
                 <outlet property="backgroundImageView" destination="Mli-ab-xKB" id="WEn-ln-JI3"/>
                 <outlet property="closeButton" destination="K9O-Qn-pqZ" id="at6-lg-yWn"/>
-                <outlet property="dotsContainerView" destination="z58-YP-xUI" id="vOW-ig-JMT"/>
-                <outlet property="infoLabel" destination="od3-G7-wAq" id="KrL-of-xIA"/>
-                <outlet property="numberButtonsContainer" destination="JqL-Lu-nqW" id="Qbw-vz-yaN"/>
-                <outlet property="numberLuckView" destination="0Is-o4-kYM" id="qdt-Lj-n60"/>
-                <outlet property="randomNumbersLabel" destination="pF4-Ky-OjF" id="DAL-no-TLu"/>
+                <outlet property="dotsContainerView" destination="tCo-zq-8vo" id="s0p-gs-9CQ"/>
+                <outlet property="imageView" destination="qS2-AP-BCU" id="oam-5A-Xrc"/>
+                <outlet property="infoLabel" destination="GC2-Ra-1mC" id="HVw-HY-U8V"/>
+                <outlet property="randomNumbersLabel" destination="mYI-Sm-IUs" id="hvj-ZF-wap"/>
+                <outlet property="secondButtonsRow" destination="o0q-RG-j9P" id="yrY-Yg-lYA"/>
+                <outlet property="thirdButtonsRow" destination="dpa-8i-yO9" id="OEG-cf-wRi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outletCollection property="dotImagesCollection" destination="nL6-EO-P1M" collectionClass="NSMutableArray" id="Hp9-lS-mCr"/>
-                <outletCollection property="dotImagesCollection" destination="JjK-yt-Lvn" collectionClass="NSMutableArray" id="e9c-XN-6ot"/>
-                <outletCollection property="dotImagesCollection" destination="jmE-We-zPl" collectionClass="NSMutableArray" id="bF4-Sy-Tll"/>
-                <outletCollection property="dotImagesCollection" destination="z58-YP-xUI" collectionClass="NSMutableArray" id="Zqe-OK-QPK"/>
+                <outletCollection property="numberButtonsCollection" destination="cM7-gk-XuW" collectionClass="NSMutableArray" id="rcZ-ft-CbI"/>
+                <outletCollection property="numberButtonsCollection" destination="SOU-Gn-SGk" collectionClass="NSMutableArray" id="Ijs-38-9po"/>
+                <outletCollection property="numberButtonsCollection" destination="WMi-1k-LbR" collectionClass="NSMutableArray" id="sla-yG-H4o"/>
+                <outletCollection property="numberButtonsCollection" destination="TY7-Vl-UJK" collectionClass="NSMutableArray" id="k6Y-z4-5Qz"/>
+                <outletCollection property="numberButtonsCollection" destination="zPU-zr-XhY" collectionClass="NSMutableArray" id="dcX-Jm-g0I"/>
+                <outletCollection property="numberButtonsCollection" destination="nyE-O3-ohD" collectionClass="NSMutableArray" id="Zvh-Qc-WUA"/>
+                <outletCollection property="numberButtonsCollection" destination="grf-EM-lCK" collectionClass="NSMutableArray" id="Qcd-5Y-yNx"/>
+                <outletCollection property="numberButtonsCollection" destination="GQ8-Ga-eNk" collectionClass="NSMutableArray" id="yRI-B1-Trs"/>
+                <outletCollection property="numberButtonsCollection" destination="kni-Tr-MWP" collectionClass="NSMutableArray" id="CCA-kq-qtU"/>
+                <outletCollection property="dotImagesCollection" destination="9Jk-vo-UmV" collectionClass="NSMutableArray" id="pqC-eW-GgO"/>
+                <outletCollection property="dotImagesCollection" destination="Bvh-MG-7Yt" collectionClass="NSMutableArray" id="W1o-O2-zLH"/>
+                <outletCollection property="dotImagesCollection" destination="g2t-0E-q9G" collectionClass="NSMutableArray" id="gav-gV-u2g"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -40,225 +49,239 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-Nf-JqE" userLabel="background image view" customClass="APImageView">
                             <rect key="frame" x="0.0" y="0.0" width="808" height="599"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od3-G7-wAq" userLabel="Info Label">
-                            <rect key="frame" x="185.5" y="105" width="437" height="30"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="OzT-eI-QPb"/>
-                                <constraint firstAttribute="width" constant="437" id="fFy-oq-B1R"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pF4-Ky-OjF" userLabel="Random Number Label">
-                            <rect key="frame" x="185.5" y="135" width="437" height="30"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="437" id="V3L-CA-g4v"/>
-                                <constraint firstAttribute="height" constant="30" id="bu6-j8-Y6M"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z58-YP-xUI" userLabel="DotsView">
-                            <rect key="frame" x="370.5" y="177" width="67" height="19"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qS2-AP-BCU" userLabel="imageView" customClass="UIImageView">
+                            <rect key="frame" x="264" y="161.5" width="280" height="276"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nL6-EO-P1M" userLabel="dot1" customClass="APImageView">
-                                    <rect key="frame" x="0.0" y="0.0" width="19" height="19"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC2-Ra-1mC" userLabel="InfoLabel">
+                                    <rect key="frame" x="25" y="50" width="230" height="17"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="19" id="QnL-UY-ALg"/>
-                                        <constraint firstAttribute="width" constant="19" id="g7U-Bk-I0P"/>
+                                        <constraint firstAttribute="height" constant="17" id="4U8-rK-YQr"/>
+                                        <constraint firstAttribute="width" constant="230" id="7yo-vR-Opv"/>
                                     </constraints>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjK-yt-Lvn" userLabel="dot2" customClass="APImageView">
-                                    <rect key="frame" x="24" y="0.0" width="19" height="19"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYI-Sm-IUs" userLabel="Random Number Label">
+                                    <rect key="frame" x="25" y="50" width="230" height="17"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="19" id="IV8-iv-Dbj"/>
-                                        <constraint firstAttribute="width" constant="19" id="f1W-7w-QOY"/>
+                                        <constraint firstAttribute="width" constant="230" id="UGh-6f-ztZ"/>
+                                        <constraint firstAttribute="height" constant="17" id="bDe-xl-vCW"/>
                                     </constraints>
-                                </imageView>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmE-We-zPl" userLabel="dot3" customClass="APImageView">
-                                    <rect key="frame" x="48" y="0.0" width="19" height="19"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-zq-8vo" userLabel="DotsView">
+                                    <rect key="frame" x="123" y="75" width="34" height="10"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Jk-vo-UmV" userLabel="dot1" customClass="APImageView">
+                                            <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="10" id="HqU-Lg-2U3"/>
+                                                <constraint firstAttribute="width" constant="10" id="pi1-ew-5ld"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bvh-MG-7Yt" userLabel="dot2" customClass="APImageView">
+                                            <rect key="frame" x="12" y="0.0" width="10" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="10" id="6Si-4z-K85"/>
+                                                <constraint firstAttribute="width" constant="10" id="HWf-OR-Kc7"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2t-0E-q9G" userLabel="dot3" customClass="APImageView">
+                                            <rect key="frame" x="24" y="0.0" width="10" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="10" id="QTC-cI-1Ij"/>
+                                                <constraint firstAttribute="width" constant="10" id="t5R-je-fwP"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="19" id="CXt-Bw-kzC"/>
-                                        <constraint firstAttribute="width" constant="19" id="pBH-YV-Ity"/>
+                                        <constraint firstAttribute="height" constant="10" id="GQn-LD-mKF"/>
+                                        <constraint firstItem="Bvh-MG-7Yt" firstAttribute="leading" secondItem="9Jk-vo-UmV" secondAttribute="trailing" constant="2" id="NYx-Zh-DrS"/>
+                                        <constraint firstAttribute="width" constant="34" id="Qkh-oU-tYX"/>
+                                        <constraint firstItem="9Jk-vo-UmV" firstAttribute="leading" secondItem="tCo-zq-8vo" secondAttribute="leading" id="SNr-lg-gjy"/>
+                                        <constraint firstItem="Bvh-MG-7Yt" firstAttribute="top" secondItem="tCo-zq-8vo" secondAttribute="top" id="sTO-vg-S33"/>
+                                        <constraint firstItem="9Jk-vo-UmV" firstAttribute="top" secondItem="tCo-zq-8vo" secondAttribute="top" id="v6L-YG-bqx"/>
+                                        <constraint firstItem="g2t-0E-q9G" firstAttribute="top" secondItem="tCo-zq-8vo" secondAttribute="top" id="z7x-TN-Uoh"/>
+                                        <constraint firstAttribute="trailing" secondItem="g2t-0E-q9G" secondAttribute="trailing" id="zAn-jm-Fef"/>
                                     </constraints>
-                                </imageView>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ISu-Ga-rFe" userLabel="Stack View vertical">
+                                    <rect key="frame" x="52" y="92" width="176" height="154"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QAj-w6-YMz" userLabel="Stack View horizontal 1-3">
+                                            <rect key="frame" x="0.0" y="0.0" width="176" height="42"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cM7-gk-XuW" userLabel="1 button">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="8kq-M9-18I"/>
+                                                        <constraint firstAttribute="height" constant="42" id="VF8-V5-f0l"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="Ira-gS-tAI"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOU-Gn-SGk" userLabel="2 button">
+                                                    <rect key="frame" x="67" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="OWV-9C-QuG"/>
+                                                        <constraint firstAttribute="height" constant="42" id="uWU-k5-n4d"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="Kyf-yD-ptN"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMi-1k-LbR" userLabel="3 button">
+                                                    <rect key="frame" x="134" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="PBR-lo-OFF"/>
+                                                        <constraint firstAttribute="height" constant="42" id="hWm-U5-eL6"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="mD9-ob-em5"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="o0q-RG-j9P" userLabel="Stack View horizontal 4-6">
+                                            <rect key="frame" x="0.0" y="56" width="176" height="42"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY7-Vl-UJK" userLabel="4 button">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="QId-y1-svy"/>
+                                                        <constraint firstAttribute="width" constant="42" id="rKR-Wq-rTR"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="ueG-f6-Ed0"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPU-zr-XhY" userLabel="5 button">
+                                                    <rect key="frame" x="67" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="DaJ-OS-Zvi"/>
+                                                        <constraint firstAttribute="width" constant="42" id="ZIK-tO-2E1"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="0Cc-Rs-KR8"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyE-O3-ohD" userLabel="6 button">
+                                                    <rect key="frame" x="134" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="q3L-z9-KIe"/>
+                                                        <constraint firstAttribute="width" constant="42" id="uDS-sx-wqO"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="1aT-g7-B2v"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dpa-8i-yO9" userLabel="Stack View horizontal 7-9">
+                                            <rect key="frame" x="0.0" y="112" width="176" height="42"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grf-EM-lCK" userLabel="7 button">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="IFa-i8-MNw"/>
+                                                        <constraint firstAttribute="width" constant="42" id="JUL-gb-HFx"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="fSD-me-oMX"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQ8-Ga-eNk" userLabel="8 button">
+                                                    <rect key="frame" x="67" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="94l-am-Cdh"/>
+                                                        <constraint firstAttribute="width" constant="42" id="Imq-3E-QhX"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="iz0-bO-vNN"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-Tr-MWP" userLabel="9 button">
+                                                    <rect key="frame" x="134" y="0.0" width="42" height="42"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="KZg-ew-63g"/>
+                                                        <constraint firstAttribute="height" constant="42" id="jMd-VK-GYK"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="xE5-Tn-NGb"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="o0q-RG-j9P" firstAttribute="centerX" secondItem="ISu-Ga-rFe" secondAttribute="centerX" id="Fsw-3Q-sUB"/>
+                                        <constraint firstItem="QAj-w6-YMz" firstAttribute="centerX" secondItem="ISu-Ga-rFe" secondAttribute="centerX" id="GY1-Ni-vY6"/>
+                                        <constraint firstItem="dpa-8i-yO9" firstAttribute="centerX" secondItem="ISu-Ga-rFe" secondAttribute="centerX" id="ajT-c9-qHj"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="nL6-EO-P1M" firstAttribute="leading" secondItem="z58-YP-xUI" secondAttribute="leading" id="A3a-w4-K2j"/>
-                                <constraint firstItem="JjK-yt-Lvn" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="top" id="YYt-yo-6Mu"/>
-                                <constraint firstItem="JjK-yt-Lvn" firstAttribute="leading" secondItem="nL6-EO-P1M" secondAttribute="trailing" constant="5" id="bCJ-xB-wyu"/>
-                                <constraint firstItem="jmE-We-zPl" firstAttribute="leading" secondItem="JjK-yt-Lvn" secondAttribute="trailing" constant="5" id="csO-MH-YYs"/>
-                                <constraint firstAttribute="height" constant="19" id="eaw-g7-eS3"/>
-                                <constraint firstItem="jmE-We-zPl" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="top" id="hnp-WZ-JIT"/>
-                                <constraint firstAttribute="width" constant="67" id="kHw-CU-FET"/>
-                                <constraint firstItem="nL6-EO-P1M" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="top" id="vuT-ET-Fcq"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JqL-Lu-nqW" userLabel="numberButtonsContainer">
-                            <rect key="frame" x="270" y="213" width="268" height="268"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-7H-Qsx" userLabel="1 button">
-                                    <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="ISS-LS-QeK"/>
-                                        <constraint firstAttribute="height" constant="84" id="ORN-0E-yRC"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="06e-dz-JO0"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="522-Mh-npd" userLabel="2 button">
-                                    <rect key="frame" x="92" y="0.0" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="24c-Ek-zuV"/>
-                                        <constraint firstAttribute="height" constant="84" id="zAN-Qf-xsc"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="v8O-cL-Xbf"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkY-x4-7J8" userLabel="3 button">
-                                    <rect key="frame" x="184" y="0.0" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="B7H-Nd-QDV"/>
-                                        <constraint firstAttribute="height" constant="84" id="gpT-pb-hMV"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="foc-fE-X9T"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPa-1r-UCq" userLabel="4 button">
-                                    <rect key="frame" x="0.0" y="92" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="3Hk-Z2-kKy"/>
-                                        <constraint firstAttribute="height" constant="84" id="PLL-ox-ajw"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="Jof-XH-BcK"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPj-cZ-i38" userLabel="5 button">
-                                    <rect key="frame" x="92" y="92" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="84" id="gbh-Zh-wbR"/>
-                                        <constraint firstAttribute="width" constant="84" id="kTO-fQ-7AF"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="18B-tu-fJE"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x2-0D-ojQ" userLabel="6 button">
-                                    <rect key="frame" x="184" y="92" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="84" id="6WS-4d-BA1"/>
-                                        <constraint firstAttribute="width" constant="84" id="EJP-CK-sxG"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="FBL-fZ-o1D"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Il1-ut-s05" userLabel="7 button">
-                                    <rect key="frame" x="0.0" y="184" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="OT9-Rq-5m7"/>
-                                        <constraint firstAttribute="height" constant="84" id="hs3-bP-H27"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="2z2-EU-d1d"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SFO-hM-Ttf" userLabel="8 button">
-                                    <rect key="frame" x="92" y="184" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="9VE-Tb-jHd"/>
-                                        <constraint firstAttribute="height" constant="84" id="PfG-06-ZYT"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="ALJ-Q3-jna"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtI-Yh-ykf" userLabel="9 button">
-                                    <rect key="frame" x="184" y="184" width="84" height="84"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="84" id="ao2-mq-FfQ"/>
-                                        <constraint firstAttribute="width" constant="84" id="qN5-W9-xzV"/>
-                                    </constraints>
-                                    <state key="normal">
-                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="handleUserPushNumberButton:" destination="-1" eventType="touchUpInside" id="gYa-Mw-QgC"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstItem="UtI-Yh-ykf" firstAttribute="top" secondItem="1x2-0D-ojQ" secondAttribute="bottom" constant="8" id="0Ys-Nt-fUf"/>
-                                <constraint firstItem="sPa-1r-UCq" firstAttribute="top" secondItem="JBS-7H-Qsx" secondAttribute="bottom" constant="8" id="0cu-ML-oHP"/>
-                                <constraint firstAttribute="bottom" secondItem="SFO-hM-Ttf" secondAttribute="bottom" id="2De-9n-M4d"/>
-                                <constraint firstItem="SFO-hM-Ttf" firstAttribute="leading" secondItem="Il1-ut-s05" secondAttribute="trailing" constant="8" id="5Ul-oF-wKk"/>
-                                <constraint firstItem="Il1-ut-s05" firstAttribute="top" secondItem="sPa-1r-UCq" secondAttribute="bottom" constant="8" id="DUq-RT-r9Y"/>
-                                <constraint firstItem="lPj-cZ-i38" firstAttribute="top" secondItem="522-Mh-npd" secondAttribute="bottom" constant="8" id="Flt-bj-C0Y"/>
-                                <constraint firstItem="zkY-x4-7J8" firstAttribute="top" secondItem="JqL-Lu-nqW" secondAttribute="top" id="Jan-Xw-csz"/>
-                                <constraint firstAttribute="trailing" secondItem="1x2-0D-ojQ" secondAttribute="trailing" id="LU4-Fm-nkM"/>
-                                <constraint firstAttribute="centerX" secondItem="522-Mh-npd" secondAttribute="centerX" id="MHZ-IG-6WY"/>
-                                <constraint firstItem="522-Mh-npd" firstAttribute="top" secondItem="JqL-Lu-nqW" secondAttribute="top" id="Mkw-9J-OTa"/>
-                                <constraint firstItem="SFO-hM-Ttf" firstAttribute="top" secondItem="lPj-cZ-i38" secondAttribute="bottom" constant="8" id="S5l-ej-7sy"/>
-                                <constraint firstItem="JBS-7H-Qsx" firstAttribute="top" secondItem="JqL-Lu-nqW" secondAttribute="top" id="SgU-qf-Ubt"/>
-                                <constraint firstItem="Il1-ut-s05" firstAttribute="leading" secondItem="JqL-Lu-nqW" secondAttribute="leading" id="XSc-A3-8dG"/>
-                                <constraint firstAttribute="width" constant="268" id="Ypj-w9-SwU"/>
-                                <constraint firstItem="1x2-0D-ojQ" firstAttribute="top" secondItem="zkY-x4-7J8" secondAttribute="bottom" constant="8" id="eD6-yR-KLn"/>
-                                <constraint firstItem="UtI-Yh-ykf" firstAttribute="leading" secondItem="SFO-hM-Ttf" secondAttribute="trailing" constant="8" id="hPS-yo-nQ4"/>
-                                <constraint firstItem="sPa-1r-UCq" firstAttribute="leading" secondItem="JqL-Lu-nqW" secondAttribute="leading" id="k8q-xR-US3"/>
-                                <constraint firstAttribute="centerX" secondItem="lPj-cZ-i38" secondAttribute="centerX" id="kJ6-Ih-787"/>
-                                <constraint firstAttribute="trailing" secondItem="zkY-x4-7J8" secondAttribute="trailing" id="lNf-7O-Bro"/>
-                                <constraint firstAttribute="height" constant="268" id="r0B-Sq-jqC"/>
-                                <constraint firstItem="JBS-7H-Qsx" firstAttribute="leading" secondItem="JqL-Lu-nqW" secondAttribute="leading" id="xKl-fp-uzC"/>
+                                <constraint firstItem="tCo-zq-8vo" firstAttribute="firstBaseline" secondItem="mYI-Sm-IUs" secondAttribute="baseline" constant="12.5" symbolType="layoutAnchor" id="0H4-dP-ERd"/>
+                                <constraint firstItem="GC2-Ra-1mC" firstAttribute="bottom" secondItem="mYI-Sm-IUs" secondAttribute="bottom" id="7Rd-dL-ylf"/>
+                                <constraint firstItem="ISu-Ga-rFe" firstAttribute="top" secondItem="tCo-zq-8vo" secondAttribute="bottom" constant="7" id="9VM-yu-5Ka"/>
+                                <constraint firstItem="ISu-Ga-rFe" firstAttribute="centerX" secondItem="qS2-AP-BCU" secondAttribute="centerX" id="Jd9-KL-bcC"/>
+                                <constraint firstAttribute="bottom" secondItem="ISu-Ga-rFe" secondAttribute="bottom" priority="750" constant="30" id="RA3-bE-Jnv"/>
+                                <constraint firstItem="GC2-Ra-1mC" firstAttribute="top" secondItem="qS2-AP-BCU" secondAttribute="top" constant="50" id="SEh-MO-X6D"/>
+                                <constraint firstItem="GC2-Ra-1mC" firstAttribute="centerX" secondItem="qS2-AP-BCU" secondAttribute="centerX" id="WaJ-Cz-ZRw"/>
+                                <constraint firstItem="GC2-Ra-1mC" firstAttribute="leading" secondItem="qS2-AP-BCU" secondAttribute="leading" constant="25" id="dDt-XY-lL7"/>
+                                <constraint firstItem="mYI-Sm-IUs" firstAttribute="centerX" secondItem="qS2-AP-BCU" secondAttribute="centerX" id="mNx-oN-gxx"/>
+                                <constraint firstItem="tCo-zq-8vo" firstAttribute="centerX" secondItem="qS2-AP-BCU" secondAttribute="centerX" id="zuy-fL-fta"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9O-Qn-pqZ" userLabel="Close Button">
-                            <rect key="frame" x="113" y="100" width="44" height="44"/>
+                            <rect key="frame" x="521" y="142" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="44" id="EmC-s9-vLW"/>
-                                <constraint firstAttribute="height" constant="44" id="erc-N1-lhU"/>
+                                <constraint firstAttribute="width" constant="40" id="EmC-s9-vLW"/>
+                                <constraint firstAttribute="height" constant="40" id="erc-N1-lhU"/>
                             </constraints>
                             <state key="normal">
                                 <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -270,20 +293,14 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="K9O-Qn-pqZ" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" constant="100" id="5Zt-IB-vNI"/>
-                        <constraint firstItem="z58-YP-xUI" firstAttribute="top" secondItem="od3-G7-wAq" secondAttribute="bottom" constant="42" id="7wL-27-nKy"/>
+                        <constraint firstItem="qS2-AP-BCU" firstAttribute="top" secondItem="K9O-Qn-pqZ" secondAttribute="bottom" constant="-20.5" id="4VM-ei-rZH"/>
+                        <constraint firstItem="qS2-AP-BCU" firstAttribute="centerY" secondItem="0Is-o4-kYM" secondAttribute="centerY" id="5EQ-lm-e8Z"/>
+                        <constraint firstItem="qS2-AP-BCU" firstAttribute="centerX" secondItem="0Is-o4-kYM" secondAttribute="centerX" id="5bT-4N-ne1"/>
                         <constraint firstAttribute="bottom" secondItem="xf8-Nf-JqE" secondAttribute="bottom" id="8dB-QM-LOr"/>
                         <constraint firstItem="xf8-Nf-JqE" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" id="BWJ-iQ-AXv"/>
-                        <constraint firstAttribute="centerX" secondItem="z58-YP-xUI" secondAttribute="centerX" id="HDm-TP-973"/>
                         <constraint firstItem="xf8-Nf-JqE" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" id="LdC-uS-HTf"/>
-                        <constraint firstItem="JqL-Lu-nqW" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="bottom" constant="17" id="TeA-gN-Qb6"/>
-                        <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" constant="113" id="b8I-Du-QmZ"/>
-                        <constraint firstAttribute="centerX" secondItem="od3-G7-wAq" secondAttribute="centerX" id="dbx-e3-8iJ"/>
-                        <constraint firstItem="pF4-Ky-OjF" firstAttribute="top" secondItem="od3-G7-wAq" secondAttribute="bottom" id="lqL-Ch-OuQ"/>
-                        <constraint firstAttribute="centerX" secondItem="pF4-Ky-OjF" secondAttribute="centerX" id="mhf-N2-1FO"/>
+                        <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="qS2-AP-BCU" secondAttribute="trailing" constant="-23" id="W41-aY-9BJ"/>
                         <constraint firstAttribute="trailing" secondItem="xf8-Nf-JqE" secondAttribute="trailing" id="pEC-Xq-40u"/>
-                        <constraint firstAttribute="centerX" secondItem="JqL-Lu-nqW" secondAttribute="centerX" id="u7M-Wb-22P"/>
-                        <constraint firstItem="od3-G7-wAq" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" constant="105" id="xch-OL-lm5"/>
                     </constraints>
                 </view>
             </subviews>

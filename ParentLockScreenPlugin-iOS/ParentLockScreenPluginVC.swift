@@ -9,12 +9,15 @@
 import ApplicasterSDK
 import ZappPlugins
 
-class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
-    
+public typealias HookCompletion = (Bool, NSError?, [String : Any]?) -> Void
+
+class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScreenHookAdapterProtocol {
+
     var screenPluginDelegate: ZPPlugableScreenDelegate?
-    
-    var numberOfValidationButtons:String?
+    var pluginModel: ZPPluginModel?
+    var hookCompletion:HookCompletion?
     var dataSourceModel: NSObject?
+    var numberOfValidationButtons:String?
     var isVlidated:Bool!
     var generatedValues: [String]
     var enterdValues: [String]
@@ -26,16 +29,19 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     let ParentLockScreenNumberLimit = 3;
     let cornerRadius: CGFloat = 0.5;
     
-    @IBOutlet weak var closeView: UIControl!
-    @IBOutlet weak var numberLuckView: UIView!
-    @IBOutlet weak var backgroundImageView: APImageView!
+    //@IBOutlet weak var numberLuckView: UIView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var randomNumbersLabel: UILabel!
     @IBOutlet weak var dotsContainerView: UIView!
     @IBOutlet var dotImagesCollection: [APImageView]!
     @IBOutlet var numberButtonsCollection: [UIButton]!
-    @IBOutlet weak var numberButtonsContainer: UIView!
+    @IBOutlet weak var secondButtonsRow: UIStackView!
+    @IBOutlet weak var thirdButtonsRow: UIStackView!
+    
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         generatedValues = []
         enterdValues = []
@@ -44,24 +50,10 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        generateValues()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureScreenUI()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        enterdValues.removeAll()
-    }
-    
     required convenience init?(pluginModel: ZPPluginModel, screenModel: ZLScreenModel, dataSourceModel: NSObject?) {
         self.init(nibName: "ParentLockScreenPluginVC", bundle: Bundle(for: type(of: self)))
         pluginGeneralSettings = screenModel.general
+        self.pluginModel = pluginModel
         if let styles = screenModel.style {
             pluginStyles = styles.object
         }
@@ -71,40 +63,84 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - ZPScreenHookAdapterProtocol
+    
+    func executeHook(presentationIndex: NSInteger, dataDict: [String : Any]?, taskFinishedWithCompletion: @escaping (Bool, NSError?, [String : Any]?) -> Void) {
+         hookCompletion = taskFinishedWithCompletion
+    }
+
+    required convenience init?(pluginModel: ZPPluginModel, dataSourceModel: NSObject?) {
+        self.init(nibName: "ParentLockScreenPluginVC", bundle: Bundle(for: type(of: self)))
+        self.pluginModel = pluginModel
+        self.dataSourceModel = dataSourceModel
+    }
+    
+    func hookPluginDidDisappear(viewController: UIViewController) {
+        if let hookCompletion = self.hookCompletion {
+            let error = NSError(domain: "User has closed hook execution failed", code: 0, userInfo: nil)
+            hookCompletion(false, error, nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        generateValues()
+        setCloseButtonImage()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureScreenUI()
+        setCloseButtonImage()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        enterdValues.removeAll()
+    }
+    
     func setNumberButtons() {
-        UIButton.normalBackgroundColor = StylesHelper.getColorForKey(key: "number_color", from: pluginStyles)
-        UIButton.highlighteBackgroudColor = StylesHelper.getColorForKey(key: "number_color_pressed", from: pluginStyles)
         for button in numberButtonsCollection {
-            button.layer.cornerRadius = cornerRadius * button.bounds.size.width
-            button.clipsToBounds = true
-            button.layer.borderWidth = 2
             if let pluginStyles = pluginStyles {
-                button.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
+                if let selectedBackgroundImage = StylesHelper.image(for: "Number_btn_selected_bg", using: pluginStyles) {
+                    button.setImage(selectedBackgroundImage, for: .highlighted)
+                }
+                if let backgroundImage = StylesHelper.image(for: "Number_btn_not_selected_bg", using: pluginStyles) {
+                    button.setImage(backgroundImage, for: .normal)
+                }
+                button.layer.cornerRadius = cornerRadius * button.bounds.size.width
+                button.clipsToBounds = true
+                button.layer.borderWidth = 2
+                //button.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
+                StylesHelper.setColorforButton(button: button, key: "number_color", from: pluginStyles, for: .normal)
+                StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, for: .highlighted)
                 StylesHelper.setFontforButton(button: button, fontNameKey: "font", fontSizeKey: "number_font_size", from: pluginStyles)
             }
             if let buttonNumber = numberButtonsCollection.firstIndex(of: button) {
                 button.setTitle(String(buttonNumber + 1), for: .normal)
-                button.isHidden = numberOfValidationDigitsToPresent() > buttonNumber ? false : true
             }
         }
+        let numberOfValidationDigitsToPresent = self.numberOfValidationDigitsToPresent()
+        secondButtonsRow.isHidden = numberOfValidationDigitsToPresent == 3
+        thirdButtonsRow.isHidden = numberOfValidationDigitsToPresent == 3
     }
     
     func configureScreenUI() {
         setIndicatorsToMainColor()
         setNumberButtons()
         if let pluginGeneralSettings = pluginGeneralSettings {
-            if let screenBackgroundImageString = pluginGeneralSettings["background_image"] as? String {
-                if let screenBackgroundImageUrl = URL.init(string: screenBackgroundImageString) {
-                self.backgroundImageView.setImageWith(screenBackgroundImageUrl)
-                }
-            } else {
-                let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
-                self.backgroundImageView.backgroundColor = screenBackgroundColor
+            if let screenBackgroundImage = StylesHelper.image(for: "container_background_image", using: pluginGeneralSettings) {
+                self.imageView.image = screenBackgroundImage
             }
-            if let closeButtonImageString = pluginGeneralSettings["close_button"] as? String,
-                let closeButtonImageUrl = URL.init(string: closeButtonImageString),
-                let imageView = closeButton.imageView {
-                ZAAppConnector.sharedInstance().imageDelegate.setImage(to: imageView, url: closeButtonImageUrl, placeholderImage: nil)
+            let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
+            self.backgroundImageView.backgroundColor = screenBackgroundColor
+        }
+    }
+    
+    func setCloseButtonImage() {
+        if let pluginGeneralSettings = pluginGeneralSettings {
+            if let closeButtonImage = StylesHelper.image(for: "close_button", using: pluginGeneralSettings) {
+                 closeButton.setImage(closeButtonImage, for: .normal)
             }
         }
     }
@@ -146,7 +182,17 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
     }
     
     @IBAction func handleUserPushCloseButton(_ sender: UIButton) {
-        self.dismissPushAnimated()
+        closeScreenPlugin()
+    }
+    
+    func closeScreenPlugin() {
+        if let screenPluginDelegate = self.screenPluginDelegate {
+            screenPluginDelegate.removeScreenPluginFromNavigationStack()
+        }
+        //        if let topMostModalVC = APApplicasterController.sharedInstance()?.rootViewController.topmostModal() {
+        //            topMostModalVC.removeViewFromParentViewController()
+        //            //topMostModalVC.dismissModalViewControllerFromParent(animated: true, completionHandler: nil)
+        //        }
     }
     
     @IBAction func handleUserPushNumberButton(_ sender: UIButton) {
@@ -156,8 +202,10 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
             if enterdValues.count == ParentLockScreenNumberLimit {
                 if enterdValues == generatedValues {
                     self.isVlidated = true
-                    self.dismiss(animated: true) {
-                        //send notification of successfull login
+                    closeScreenPlugin()
+                    //TODO: Navigate to destination
+                    if let hookCompletion = self.hookCompletion {
+                        hookCompletion(true,nil,nil)
                     }
                 } else {
                     generatedValues.removeAll()
@@ -191,22 +239,6 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol {
         if let pluginGeneralSettings = pluginGeneralSettings {
             let dot = self.dotImagesCollection[index]
             dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_secondary_color", from: pluginGeneralSettings)
-        }
-    }
-}
-
-extension UIButton {
-
-    public static var normalBackgroundColor:UIColor?
-    public static var highlighteBackgroudColor:UIColor?
-
-    override open var isHighlighted: Bool {
-        didSet {
-            if let normalBackgroundColor = UIButton.normalBackgroundColor, let highlighteBackgroudColor = UIButton.highlighteBackgroudColor {
-                backgroundColor = isHighlighted ? highlighteBackgroudColor : normalBackgroundColor
-            } else {
-                backgroundColor =  UIColor.clear
-            }
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ZappPlugins
 
 class StylesHelper: NSObject {
     
@@ -19,13 +20,12 @@ class StylesHelper: NSObject {
         }
     }
     
-    public static func setColorforButton(button: UIButton, key:String,from dictionary:[String : Any]?) {
+    public static func setColorforButton(button: UIButton, key:String,from dictionary:[String : Any]?, for state:UIControl.State) {
         if let dictionary = dictionary,
             let argbString = dictionary[key] as? String,
             !argbString.isEmptyOrWhitespace() {
             let color = UIColor(argbHexString: argbString)
-            button.setTitleColor(color, for: .normal)
-            
+            button.setTitleColor(color, for: state)
         }
     }
     
@@ -67,14 +67,26 @@ class StylesHelper: NSObject {
         var color:UIColor
         if let dictionary = dictionary,
             !key.isEmptyOrWhitespace(),
-            let HexString = dictionary[key] as? String,
-            !HexString.isEmptyOrWhitespace(){
-            color = UIColor(hex: HexString)
+            let argbString = dictionary[key] as? String,
+            !argbString.isEmptyOrWhitespace() {
+            color = UIColor(argbHexString: argbString)
         } else {
             color = UIColor.clear
         }
         return color
     }
     
+    public static func image(for Key:String, using dictionary:[String:Any]) -> UIImage? {
+        var retVal : UIImage?
+        if let backgroundImageString = dictionary[Key] as? String,
+            let backgroundImageUrl = URL.init(string: backgroundImageString) {
+            let backgroundImage = UIImageView.init()
+            ZAAppConnector.sharedInstance().imageDelegate.setImage(to: backgroundImage, url: backgroundImageUrl, placeholderImage: nil)
+            //let backgroundImage = APImageView.init()
+            //backgroundImage.setImageWith(backgroundImageUrl)
+            retVal = backgroundImage.image
+        }
+        return retVal
+    }
 }
 
