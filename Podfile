@@ -8,6 +8,7 @@ source 'git@github.com:CocoaPods/Specs.git'
 
 def base_pods
   pod 'ZappPlugins'
+  pod 'ApplicasterSDK'
 end
 
 target 'ParentLockScreenPlugin-iOS' do
