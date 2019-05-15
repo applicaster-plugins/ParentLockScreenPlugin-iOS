@@ -5,7 +5,7 @@
 //  Created by Miri Vecselboim on 28/03/2019.
 //
 
-import Foundation
+import ApplicasterSDK
 import ZappPlugins
 
 class StylesHelper: NSObject {
@@ -80,10 +80,8 @@ class StylesHelper: NSObject {
         var retVal : UIImage?
         if let backgroundImageString = dictionary[Key] as? String,
             let backgroundImageUrl = URL.init(string: backgroundImageString) {
-            let backgroundImage = UIImageView.init()
-            ZAAppConnector.sharedInstance().imageDelegate.setImage(to: backgroundImage, url: backgroundImageUrl, placeholderImage: nil)
-            //let backgroundImage = APImageView.init()
-            //backgroundImage.setImageWith(backgroundImageUrl)
+            let backgroundImage = APImageView()
+            backgroundImage.setImageWith(backgroundImageUrl)
             retVal = backgroundImage.image
         }
         return retVal
