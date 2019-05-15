@@ -50,7 +50,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="808" height="599"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qS2-AP-BCU" userLabel="imageView" customClass="UIImageView">
-                            <rect key="frame" x="264" y="161.5" width="280" height="276"/>
+                            <rect key="frame" x="264" y="148" width="280" height="303"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC2-Ra-1mC" userLabel="InfoLabel">
                                     <rect key="frame" x="25" y="50" width="230" height="17"/>
@@ -64,7 +64,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYI-Sm-IUs" userLabel="Random Number Label">
-                                    <rect key="frame" x="25" y="50" width="230" height="17"/>
+                                    <rect key="frame" x="25" y="77" width="230" height="17"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="230" id="UGh-6f-ztZ"/>
@@ -75,7 +75,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-zq-8vo" userLabel="DotsView">
-                                    <rect key="frame" x="123" y="75" width="34" height="10"/>
+                                    <rect key="frame" x="123" y="102" width="34" height="10"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Jk-vo-UmV" userLabel="dot1" customClass="APImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
@@ -112,7 +112,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ISu-Ga-rFe" userLabel="Stack View vertical">
-                                    <rect key="frame" x="52" y="92" width="176" height="154"/>
+                                    <rect key="frame" x="52" y="119" width="176" height="154"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QAj-w6-YMz" userLabel="Stack View horizontal 1-3">
                                             <rect key="frame" x="0.0" y="0.0" width="176" height="42"/>
@@ -266,8 +266,8 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="tCo-zq-8vo" firstAttribute="firstBaseline" secondItem="mYI-Sm-IUs" secondAttribute="baseline" constant="12.5" symbolType="layoutAnchor" id="0H4-dP-ERd"/>
-                                <constraint firstItem="GC2-Ra-1mC" firstAttribute="bottom" secondItem="mYI-Sm-IUs" secondAttribute="bottom" id="7Rd-dL-ylf"/>
                                 <constraint firstItem="ISu-Ga-rFe" firstAttribute="top" secondItem="tCo-zq-8vo" secondAttribute="bottom" constant="7" id="9VM-yu-5Ka"/>
+                                <constraint firstItem="mYI-Sm-IUs" firstAttribute="top" secondItem="GC2-Ra-1mC" secondAttribute="bottom" constant="10" id="G7E-rd-cL3"/>
                                 <constraint firstItem="ISu-Ga-rFe" firstAttribute="centerX" secondItem="qS2-AP-BCU" secondAttribute="centerX" id="Jd9-KL-bcC"/>
                                 <constraint firstAttribute="bottom" secondItem="ISu-Ga-rFe" secondAttribute="bottom" priority="750" constant="30" id="RA3-bE-Jnv"/>
                                 <constraint firstItem="GC2-Ra-1mC" firstAttribute="top" secondItem="qS2-AP-BCU" secondAttribute="top" constant="50" id="SEh-MO-X6D"/>
@@ -278,7 +278,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9O-Qn-pqZ" userLabel="Close Button">
-                            <rect key="frame" x="521" y="142" width="40" height="40"/>
+                            <rect key="frame" x="521" y="128.5" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="EmC-s9-vLW"/>
                                 <constraint firstAttribute="height" constant="40" id="erc-N1-lhU"/>
