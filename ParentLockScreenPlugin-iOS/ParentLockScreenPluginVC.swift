@@ -112,8 +112,6 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
                 }
                 StylesHelper.setColorforButton(button: button, key: "number_color", from: pluginStyles, for: .normal)
                 StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, for: UIControl.State.highlighted)
-//                StylesHelper.setColorforButton(button: button, key: "number_color", from: pluginStyles, isSelected: false)
-//                StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, isSelected: true)
                 StylesHelper.setFontforButton(button: button, fontNameKey: "font", fontSizeKey: "number_font_size", from: pluginStyles)
             }
             if let buttonNumber = numberButtonsCollection.firstIndex(of: button) {
