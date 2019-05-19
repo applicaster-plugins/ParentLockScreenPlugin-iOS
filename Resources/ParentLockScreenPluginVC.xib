@@ -13,11 +13,12 @@
             <connections>
                 <outlet property="backgroundImageView" destination="xf8-Nf-JqE" id="QkM-GW-dih"/>
                 <outlet property="closeButton" destination="K9O-Qn-pqZ" id="qBY-T3-6gL"/>
+                <outlet property="containerImageView" destination="6R6-SB-58x" id="Zsa-eN-yzR"/>
                 <outlet property="dotsContainerView" destination="z58-YP-xUI" id="icf-6H-TIW"/>
-                <outlet property="imageView" destination="6R6-SB-58x" id="4tZ-Lb-4UX"/>
                 <outlet property="infoLabel" destination="od3-G7-wAq" id="sHe-9F-H1P"/>
                 <outlet property="randomNumbersLabel" destination="kIc-VC-4IB" id="Oeb-FE-VUj"/>
                 <outlet property="secondButtonsRow" destination="1Zc-he-VOE" id="xgb-72-JFP"/>
+                <outlet property="secondaryRandomNumbersLabel" destination="nZb-Hv-255" id="t7k-Ga-VDm"/>
                 <outlet property="thirdButtonsRow" destination="3bS-Uh-oGK" id="0WS-lW-PEw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="IVM-uh-8xH"/>
                 <outletCollection property="dotImagesCollection" destination="nL6-EO-P1M" collectionClass="NSMutableArray" id="Hp9-lS-mCr"/>
@@ -46,10 +47,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="535"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6R6-SB-58x" userLabel="imageView" customClass="UIImageView">
-                            <rect key="frame" x="62" y="138" width="290" height="303"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6R6-SB-58x" userLabel="containerImageView" customClass="UIImageView">
+                            <rect key="frame" x="62" y="138" width="290" height="320"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od3-G7-wAq" userLabel="InfoLabel">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od3-G7-wAq" userLabel="InfoLabel">
                                     <rect key="frame" x="30" y="50" width="230" height="17"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -60,7 +61,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-VC-4IB" userLabel="Random Number Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Number Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-VC-4IB" userLabel="Random Number Label">
                                     <rect key="frame" x="30" y="77" width="230" height="17"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -71,8 +72,19 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Number Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZb-Hv-255" userLabel="Secondary Random Number Label">
+                                    <rect key="frame" x="30" y="96" width="230" height="17"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="230" id="7JE-p8-huM"/>
+                                        <constraint firstAttribute="height" constant="17" id="o7H-6Z-Jq0"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z58-YP-xUI" userLabel="DotsView">
-                                    <rect key="frame" x="128" y="102" width="34" height="10"/>
+                                    <rect key="frame" x="128" y="119" width="34" height="10"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nL6-EO-P1M" userLabel="dot1" customClass="APImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
@@ -109,7 +121,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-9U-TTk" userLabel="Stack View vertical">
-                                    <rect key="frame" x="57" y="119" width="176" height="154"/>
+                                    <rect key="frame" x="57" y="136" width="176" height="154"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="67a-M9-S49" userLabel="Stack View horizontal 1-3">
                                             <rect key="frame" x="0.0" y="0.0" width="176" height="42"/>
@@ -264,11 +276,13 @@
                             <constraints>
                                 <constraint firstItem="od3-G7-wAq" firstAttribute="top" secondItem="6R6-SB-58x" secondAttribute="top" constant="50" id="7In-NW-huB"/>
                                 <constraint firstItem="od3-G7-wAq" firstAttribute="centerX" secondItem="6R6-SB-58x" secondAttribute="centerX" id="IMy-hg-AAh"/>
+                                <constraint firstItem="nZb-Hv-255" firstAttribute="centerX" secondItem="6R6-SB-58x" secondAttribute="centerX" id="KJh-hP-kpn"/>
                                 <constraint firstItem="NjK-9U-TTk" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="bottom" constant="7" id="O8Z-vl-k5L"/>
-                                <constraint firstItem="z58-YP-xUI" firstAttribute="firstBaseline" secondItem="kIc-VC-4IB" secondAttribute="baseline" constant="12.5" symbolType="layoutAnchor" id="Tjg-dK-cqd"/>
                                 <constraint firstItem="kIc-VC-4IB" firstAttribute="centerX" secondItem="6R6-SB-58x" secondAttribute="centerX" id="UQL-3a-oRN"/>
+                                <constraint firstItem="nZb-Hv-255" firstAttribute="top" secondItem="kIc-VC-4IB" secondAttribute="bottom" constant="2" id="bmE-i9-sQI"/>
                                 <constraint firstAttribute="bottom" secondItem="NjK-9U-TTk" secondAttribute="bottom" priority="750" constant="30" id="btU-9D-mcR"/>
                                 <constraint firstItem="kIc-VC-4IB" firstAttribute="top" secondItem="od3-G7-wAq" secondAttribute="bottom" constant="10" id="esN-cz-2UK"/>
+                                <constraint firstItem="z58-YP-xUI" firstAttribute="top" secondItem="kIc-VC-4IB" secondAttribute="bottom" constant="25" id="f3E-Gh-gVs"/>
                                 <constraint firstItem="z58-YP-xUI" firstAttribute="centerX" secondItem="6R6-SB-58x" secondAttribute="centerX" id="sB8-0v-2A2"/>
                                 <constraint firstItem="NjK-9U-TTk" firstAttribute="centerX" secondItem="z58-YP-xUI" secondAttribute="centerX" id="yj0-wW-FTN"/>
                             </constraints>
