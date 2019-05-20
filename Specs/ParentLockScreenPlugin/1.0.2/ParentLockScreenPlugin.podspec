@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
 
   s.resources = [
-    "**/*.{png,xib}"
+    "Resources/*.{png,xib}"
   ]
 
   s.xcconfig =  {
