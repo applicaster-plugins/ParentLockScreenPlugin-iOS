@@ -113,7 +113,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             }
             if let pluginStyles = pluginStyles {
                 StylesHelper.setColorforButton(button: button, key: "number_color", from: pluginStyles, for: .normal)
-                StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, for: UIControl.State.highlighted)
+                StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, for: .highlighted)
                 StylesHelper.setFontforButton(button: button, fontNameKey: "font", fontSizeKey: "number_font_size", from: pluginStyles)
             }
             if let buttonNumber = numberButtonsCollection.firstIndex(of: button) {
@@ -189,8 +189,8 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         StylesHelper.setColorforLabel(label: randomNumbersLabel, key: "random_numbers_color", from: pluginStyles)
         StylesHelper.setFontforLabel(label: randomNumbersLabel, fontNameKey: "font", fontSizeKey: "random_numbers_font_size", from: pluginStyles)
         let localizationLanguage = APApplicasterController.sharedInstance()?.localizationLanguage
-        if localizationLanguage == "EN" {
-            
+        if localizationLanguage == "en" || localizationLanguage == "en-GB" || localizationLanguage == "en-UK"{
+            secondaryRandomNumbersLabel.isHidden = true
         } else {
             //set font, size and color
             secondaryRandomNumbersLabel.text = nonLocalizedGeneratedValues.joined(separator: ", ")
@@ -221,9 +221,6 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
                 if enterdValues == generatedValues {
                     self.isVlidated = true
                     closeScreenPlugin(with: true)
-                    if let hookCompletion = self.hookCompletion {
-                        hookCompletion(true,nil,nil)
-                    }
                 } else {
                     generatedValues.removeAll()
                     generateValues()
