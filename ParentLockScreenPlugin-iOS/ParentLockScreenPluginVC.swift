@@ -102,14 +102,9 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         for button in numberButtonsCollection {
             if let backgroundImage = UIImage(named: "number_btn_not_selected_bg") {
                 button.setBackgroundImage(backgroundImage, for: .normal)
-                if let selectedBackgroundImage = UIImage(named: "number_btn_selected_bg") {
-                    button.setBackgroundImage(selectedBackgroundImage, for: .highlighted)
-                }
-            } else {
-                button.layer.cornerRadius = cornerRadius * button.bounds.size.width
-                button.clipsToBounds = true
-                button.layer.borderWidth = 2
-                button.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
+            }
+            if let selectedBackgroundImage = UIImage(named: "number_btn_selected_bg") {
+                button.setBackgroundImage(selectedBackgroundImage, for: .highlighted)
             }
             if let pluginStyles = pluginStyles {
                 StylesHelper.setColorforButton(button: button, key: "number_color", from: pluginStyles, for: .normal)
