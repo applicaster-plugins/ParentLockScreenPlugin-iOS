@@ -17,7 +17,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     var pluginModel: ZPPluginModel?
     var hookCompletion:HookCompletion?
     var dataSourceModel: NSObject?
-    var numberOfValidationButtons:String?
+    var numberOfValidationButtons:Int?
     var isVlidated:Bool!
     var generatedValues: [String]
     var enterdValues: [String]
@@ -28,12 +28,14 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     let localizationDelegate: ZAAppDelegateConnectorLocalizationProtocol
     let ParentLockScreenNumberLimit = 3;
     let cornerRadius: CGFloat = 0.5;
+    let isFlowBlocker: Bool = true
     
     @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var containerImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var randomNumbersLabel: UILabel!
+    @IBOutlet weak var secondaryRandomNumbersLabel: UILabel!
     @IBOutlet weak var dotsContainerView: UIView!
     @IBOutlet var dotImagesCollection: [APImageView]!
     @IBOutlet var numberButtonsCollection: [UIButton]!
@@ -66,7 +68,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     //MARK: - ZPScreenHookAdapterProtocol
     
     func executeHook(presentationIndex: NSInteger, dataDict: [String : Any]?, taskFinishedWithCompletion: @escaping (Bool, NSError?, [String : Any]?) -> Void) {
-         hookCompletion = taskFinishedWithCompletion
+        hookCompletion = taskFinishedWithCompletion
     }
 
     required convenience init?(pluginModel: ZPPluginModel, dataSourceModel: NSObject?) {
@@ -98,20 +100,15 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     
     private func setNumberButtons() {
         for button in numberButtonsCollection {
+            if let backgroundImage = UIImage(named: "number_btn_not_selected_bg") {
+                button.setBackgroundImage(backgroundImage, for: .normal)
+            }
+            if let selectedBackgroundImage = UIImage(named: "number_btn_selected_bg") {
+                button.setBackgroundImage(selectedBackgroundImage, for: .highlighted)
+            }
             if let pluginStyles = pluginStyles {
-                if let backgroundImage = UIImage(named: "Number_btn_not_selected_bg") {
-                    button.setBackgroundImage(backgroundImage, for: .normal)
-                    if let selectedBackgroundImage = UIImage(named: "Number_btn_selected_bg") {
-                        button.setBackgroundImage(selectedBackgroundImage, for: .highlighted)
-                    }
-                } else {
-                    button.layer.cornerRadius = cornerRadius * button.bounds.size.width
-                    button.clipsToBounds = true
-                    button.layer.borderWidth = 2
-                    button.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
-                }
                 StylesHelper.setColorforButton(button: button, key: "number_color", from: pluginStyles, for: .normal)
-                StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, for: UIControl.State.highlighted)
+                StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, for: .highlighted)
                 StylesHelper.setFontforButton(button: button, fontNameKey: "font", fontSizeKey: "number_font_size", from: pluginStyles)
             }
             if let buttonNumber = numberButtonsCollection.firstIndex(of: button) {
@@ -127,20 +124,22 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         setIndicatorsToMainColor()
         setNumberButtons()
         setInfoLabel()
+        let containerBackgroundImageName = (numberOfValidationDigitsToPresent() == 3) ? "background_image_1_3" : "background_image_1_9"
+        if  let containerBackgroundImage = UIImage(named: containerBackgroundImageName) {
+            self.containerImageView.image = containerBackgroundImage
+        }
+        if let parentLockscreenBackgroundImage = UIImage(named: "parent_lock_background_image_736h") {
+            self.backgroundImageView.image = parentLockscreenBackgroundImage
+        }
         if let pluginGeneralSettings = pluginGeneralSettings {
-            if let screenBackgroundImage = StylesHelper.image(for: "container_background_image", using: pluginGeneralSettings) {
-                self.imageView.image = screenBackgroundImage
-            }
             let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
             self.backgroundImageView.backgroundColor = screenBackgroundColor
         }
     }
     
     private func setCloseButtonImage() {
-        if let pluginGeneralSettings = pluginGeneralSettings {
-            if let closeButtonImage = StylesHelper.image(for: "close_button", using: pluginGeneralSettings) {
-                 closeButton.setImage(closeButtonImage, for: .normal)
-            }
+        if let closeButtonImage = UIImage(named: "close_button") {
+            closeButton.setImage(closeButtonImage, for: .normal)
         }
     }
     
@@ -153,41 +152,57 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     }
     
     private func numberOfValidationDigitsToPresent() -> Int {
-        let defaultNumberOfValidationDigits = 3;
-        var validationDigits:Int = 3;
-        if let pluginGeneralSettings = pluginGeneralSettings,
-            let numberOfValidationButtons = pluginGeneralSettings["validation_flow_type"] as? String {
-            validationDigits = Int(numberOfValidationButtons) ?? defaultNumberOfValidationDigits
+        var retVal:Int = 3;
+        if let numberOfValidationButtons = numberOfValidationButtons {
+            return numberOfValidationButtons
+        } else {
+            if let pluginGeneralSettings = pluginGeneralSettings,
+                let ValidationButtonsNumberString = pluginGeneralSettings["validation_flow_type"] as? String {
+                self.numberOfValidationButtons = Int(ValidationButtonsNumberString) ?? 3
+                retVal = self.numberOfValidationButtons!
+            }
         }
-        return validationDigits
+        return retVal
     }
     
     private func generateValues() {
         var generatedValuesLocalizedArray = [String]()
+        var nonLocalizedGeneratedValues = [String]()
         for _ in 1...ParentLockScreenNumberLimit {
             let generatedValue = String(Int.random(in: 1 ... numberOfValidationDigitsToPresent()))
             generatedValues.append(generatedValue)
             if let stringGeneratedValue = NumbersDictionary[generatedValue] {
+                nonLocalizedGeneratedValues.append(stringGeneratedValue)
                 let stringGeneratedValueKey = "Number\(stringGeneratedValue)"
                 if let localizedValue = self.localizationDelegate.localizationString(byKey: stringGeneratedValueKey, defaultString: stringGeneratedValue) {
                     generatedValuesLocalizedArray.append(localizedValue)
                 }
             }
         }
-        //set text font font size size and color
+        //set font, size and color
         randomNumbersLabel.text = generatedValuesLocalizedArray.joined(separator: ", ")
         StylesHelper.setColorforLabel(label: randomNumbersLabel, key: "random_numbers_color", from: pluginStyles)
         StylesHelper.setFontforLabel(label: randomNumbersLabel, fontNameKey: "font", fontSizeKey: "random_numbers_font_size", from: pluginStyles)
+        let localizationLanguage = APApplicasterController.sharedInstance()?.localizationLanguage
+        if localizationLanguage == "en" || localizationLanguage == "en-GB" || localizationLanguage == "en-UK"{
+            secondaryRandomNumbersLabel.isHidden = true
+        } else {
+            //set font, size and color
+            secondaryRandomNumbersLabel.text = nonLocalizedGeneratedValues.joined(separator: ", ")
+            StylesHelper.setColorforLabel(label: secondaryRandomNumbersLabel, key: "secondary_random_numbers_color", from: pluginStyles)
+            StylesHelper.setFontforLabel(label: secondaryRandomNumbersLabel, fontNameKey: "font", fontSizeKey: "secondary_random_numbers_font_size", from: pluginStyles)
+        }
     }
     
     @IBAction func handleUserPushCloseButton(_ sender: UIButton) {
-        closeScreenPlugin()
+        closeScreenPlugin(with: false)
     }
     
-    private func closeScreenPlugin() {
-//        self.willMove(toParent: nil)
-//        self.view.removeAllSubviews()
-//        self.removeFromParent()
+    private func closeScreenPlugin(with success:Bool) {
+        if let hookCompletion = self.hookCompletion {
+            let error = success ? nil : NSError(domain: "User has closed hook execution failed", code: 0, userInfo: nil)
+            hookCompletion(success, error, nil)
+        }
         if let screenPluginDelegate = self.screenPluginDelegate {
             screenPluginDelegate.removeScreenPluginFromNavigationStack()
         }
@@ -200,10 +215,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             if enterdValues.count == ParentLockScreenNumberLimit {
                 if enterdValues == generatedValues {
                     self.isVlidated = true
-                    closeScreenPlugin()
-                    if let hookCompletion = self.hookCompletion {
-                        hookCompletion(true,nil,nil)
-                    }
+                    closeScreenPlugin(with: true)
                 } else {
                     generatedValues.removeAll()
                     generateValues()
@@ -217,7 +229,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     private func clearValidationIndicators() {
         if let pluginGeneralSettings = pluginGeneralSettings {
             for dot in dotImagesCollection {
-                dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_main_color", from: pluginGeneralSettings)
+                dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_normal", from: pluginGeneralSettings)
             }
         }
     }
@@ -227,7 +239,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             dot.layer.cornerRadius = cornerRadius * dot.bounds.size.width
             dot.clipsToBounds = true
             dot.layer.borderWidth = 1
-            dot.layer.borderColor = StylesHelper.getColorForKey(key: "number_buttons_selected_background_color", from: pluginStyles).cgColor
+            dot.layer.borderColor = StylesHelper.getColorForKey(key: "indicator_highlighted", from: pluginStyles).cgColor
         }
         clearValidationIndicators()
     }
@@ -235,7 +247,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     private func updateIndicatorAtIndex(index:Int) {
         if let pluginGeneralSettings = pluginGeneralSettings {
             let dot = self.dotImagesCollection[index]
-            dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_secondary_color", from: pluginGeneralSettings)
+            dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_highlighted", from: pluginGeneralSettings)
         }
     }
 }

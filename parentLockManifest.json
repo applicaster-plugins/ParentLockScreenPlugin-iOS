@@ -1,0 +1,112 @@
+{
+	"api": {
+		"class_name": "ParentLockScreenPluginVC",
+		"modules": ["ParentLockScreenPlugin"]
+	},
+	"dependency_repository_url": [],
+	"platform": "ios",
+	"author_name": "Roi Kedarya",
+	"author_email": "r.kedarya@applicaster.com",
+	"manifest_version": "1.0.0",
+	"name": "Parent Lock Screen Plugin",
+	"description": "this plugin provides Parent lock screen for validation",
+	"screen": true,
+	"preload": true,
+	"type": "general",
+	"identifier": "ParentLockScreenPlugin",
+	"ui_builder_support": true,
+	"dependency_name": "ParentLockScreenPlugin",
+	"dependency_version": "1.0.0",
+	"whitelisted_account_ids": [
+		"58b81cc348ab5c000939d2bd",
+		"5bab6246938ced000cbf89fd",
+		"4fb36afb2a11e360cf000011",
+    "59ac197839b912001736f974",
+    "58b81cc348ab5c000939d2bd",
+    "5a326ba824dda5000f5349e9",
+    "57de6f2e316338000e000000",
+    "5cc6f5d65d639a000cf17876"],
+	"min_zapp_sdk": "10.5.0-Dev",
+	"react_native": false,
+	"deprecated_since_zapp_sdk": "",
+	"unsupported_since_zapp_sdk": "",
+	"custom_configuration_fields": [{
+		"type": "uploader",
+		"key": "ios_assets_bundle",
+		"tooltip_text": "Upload Assets Folder Zip File"
+	}],
+	"general": {
+		"fields": [{
+			"type": "select",
+			"label_tooltip": "Please select the type of validation you want to use",
+			"key": "validation_flow_type",
+			"options": ["3", "9"]
+		}, {
+			"key": "background_color",
+			"label": "Screen background Color",
+			"initial_value": "#363C4A",
+			"label_tooltip": "Color for a screen backgroud",
+			"type": "color_picker"
+		}, {
+			"type": "color_picker",
+			"key": "indicator_normal",
+			"label": "indicator color",
+			"label_tooltip": "the background color of the indicator"
+		}, {
+			"type": "color_picker",
+			"key": "indicator_highlighted",
+			"label": "indicator selected color (border and fill)",
+			"label_tooltip": "the indicator background color when filled, and the indicator border color"
+		}, {
+			"label": "Item text font name",
+			"key": "font",
+			"initial_value": "HelveticaNeue-Bold",
+			"type": "ios_font_selector",
+			"placeholder": "Select Font"
+		}]
+	},
+	"styles": {
+		"fields": [{
+         "key": "presentation",
+         "type": "hidden",
+         "initial_value": "present"
+    }, {
+         "key": "force_nav_bar_hidden",
+         "type": "hidden",
+         "initial_value": true
+    }, {
+			"type": "color_picker",
+			"key": "call_for_action_text_color"
+		}, {
+			"type": "number_input",
+			"key": "call_for_action_text_font_size"
+		}, {
+			"type": "color_picker",
+			"key": "random_numbers_color"
+		}, {
+			"type": "number_input",
+			"key": "random_numbers_font_size",
+			"label_tooltip": "the font size of the generated numbers text"
+		}, {
+			"type": "color_picker",
+			"key": "secondary_random_numbers_color",
+			"label_tooltip": "the color of the secondary generated numbers"
+		}, {
+			"type": "number_input",
+			"key": "secondary_random_numbers_font_size",
+			"label_tooltip": "the font size of the secondary generated numbers"
+		}, {
+			"type": "number_input",
+			"key": "number_font_size",
+			"label_tooltip": "the font size of the button's title label"
+		}, {
+			"type": "color_picker",
+			"key": "number_color",
+			"label_tooltip": "the color of the button's title label"
+		}, {
+			"type": "color_picker",
+			"key": "number_color_pressed",
+			"label_tooltip": "the color of the button's title label when it is pressed"
+		}]
+	}
+}
