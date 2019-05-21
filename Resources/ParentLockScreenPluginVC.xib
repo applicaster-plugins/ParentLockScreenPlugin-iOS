@@ -288,7 +288,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9O-Qn-pqZ" userLabel="Close Button">
-                            <rect key="frame" x="330" y="120" width="40" height="40"/>
+                            <rect key="frame" x="325" y="125" width="40" height="40"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="B6M-eK-XnI"/>
@@ -307,11 +307,11 @@
                         <constraint firstItem="6R6-SB-58x" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" constant="62" id="7YG-Pf-EQt"/>
                         <constraint firstAttribute="trailing" secondItem="xf8-Nf-JqE" secondAttribute="trailing" id="CDL-Fg-v1l"/>
                         <constraint firstItem="xf8-Nf-JqE" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" id="I5s-as-ltW"/>
-                        <constraint firstItem="6R6-SB-58x" firstAttribute="top" secondItem="K9O-Qn-pqZ" secondAttribute="bottom" constant="-22" id="Iws-Vh-GJR"/>
+                        <constraint firstItem="6R6-SB-58x" firstAttribute="top" secondItem="K9O-Qn-pqZ" secondAttribute="bottom" constant="-27" id="Iws-Vh-GJR"/>
                         <constraint firstAttribute="width" constant="414" id="IxW-WA-7X2"/>
                         <constraint firstItem="6R6-SB-58x" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" constant="138" id="TGL-WQ-z3m"/>
                         <constraint firstItem="6R6-SB-58x" firstAttribute="centerX" secondItem="0Is-o4-kYM" secondAttribute="centerX" id="hUX-JG-iP4"/>
-                        <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="6R6-SB-58x" secondAttribute="trailing" constant="-22" id="i4R-ak-Slz"/>
+                        <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="6R6-SB-58x" secondAttribute="trailing" constant="-27" id="i4R-ak-Slz"/>
                         <constraint firstItem="xf8-Nf-JqE" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" id="yfu-8B-BpA"/>
                         <constraint firstAttribute="bottom" secondItem="xf8-Nf-JqE" secondAttribute="bottom" id="zgE-pe-K8w"/>
                     </constraints>

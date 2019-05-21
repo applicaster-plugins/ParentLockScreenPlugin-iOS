@@ -291,7 +291,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9O-Qn-pqZ" userLabel="Close Button">
-                            <rect key="frame" x="521" y="120" width="40" height="40"/>
+                            <rect key="frame" x="517" y="126.5" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="EmC-s9-vLW"/>
                                 <constraint firstAttribute="height" constant="40" id="erc-N1-lhU"/>
@@ -306,13 +306,13 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="qS2-AP-BCU" firstAttribute="top" secondItem="K9O-Qn-pqZ" secondAttribute="bottom" constant="-20.5" id="4VM-ei-rZH"/>
+                        <constraint firstItem="qS2-AP-BCU" firstAttribute="top" secondItem="K9O-Qn-pqZ" secondAttribute="bottom" constant="-27" id="4VM-ei-rZH"/>
                         <constraint firstItem="qS2-AP-BCU" firstAttribute="centerY" secondItem="0Is-o4-kYM" secondAttribute="centerY" id="5EQ-lm-e8Z"/>
                         <constraint firstItem="qS2-AP-BCU" firstAttribute="centerX" secondItem="0Is-o4-kYM" secondAttribute="centerX" id="5bT-4N-ne1"/>
                         <constraint firstAttribute="bottom" secondItem="xf8-Nf-JqE" secondAttribute="bottom" id="8dB-QM-LOr"/>
                         <constraint firstItem="xf8-Nf-JqE" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" id="BWJ-iQ-AXv"/>
                         <constraint firstItem="xf8-Nf-JqE" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" id="LdC-uS-HTf"/>
-                        <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="qS2-AP-BCU" secondAttribute="trailing" constant="-23" id="W41-aY-9BJ"/>
+                        <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="qS2-AP-BCU" secondAttribute="trailing" constant="-27" id="W41-aY-9BJ"/>
                         <constraint firstAttribute="trailing" secondItem="xf8-Nf-JqE" secondAttribute="trailing" id="pEC-Xq-40u"/>
                     </constraints>
                 </view>
