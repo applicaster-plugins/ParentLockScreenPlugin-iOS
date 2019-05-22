@@ -239,7 +239,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             dot.layer.cornerRadius = cornerRadius * dot.bounds.size.width
             dot.clipsToBounds = true
             dot.layer.borderWidth = 1
-            dot.layer.borderColor = StylesHelper.getColorForKey(key: "indicator_highlighted", from: pluginStyles).cgColor
+            dot.layer.borderColor = StylesHelper.getColorForKey(key: "indicator_highlighted", from: pluginGeneralSettings).cgColor
         }
         clearValidationIndicators()
     }
