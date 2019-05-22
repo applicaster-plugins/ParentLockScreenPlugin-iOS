@@ -124,16 +124,21 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         setIndicatorsToMainColor()
         setNumberButtons()
         setInfoLabel()
+        setBackgroundImage()
         let containerBackgroundImageName = (numberOfValidationDigitsToPresent() == 3) ? "background_image_1_3" : "background_image_1_9"
         if  let containerBackgroundImage = UIImage(named: containerBackgroundImageName) {
             self.containerImageView.image = containerBackgroundImage
         }
-        if let parentLockscreenBackgroundImage = UIImage(named: "parent_lock_background_image_736h") {
-            self.backgroundImageView.image = parentLockscreenBackgroundImage
-        }
         if let pluginGeneralSettings = pluginGeneralSettings {
             let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
             self.backgroundImageView.backgroundColor = screenBackgroundColor
+        }
+    }
+    
+    private func setBackgroundImage() {
+        let imageName = StylesHelper.localSplashImageNameForScreenSize()
+        if let parentLockscreenBackgroundImage = UIImage(named: imageName) {
+            self.backgroundImageView.image = parentLockscreenBackgroundImage
         }
     }
     
@@ -203,7 +208,8 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             let error = success ? nil : NSError(domain: "User has closed hook execution failed", code: 0, userInfo: nil)
             hookCompletion(success, error, nil)
         }
-        if let screenPluginDelegate = self.screenPluginDelegate {
+        if let screenPluginDelegate = self.screenPluginDelegate,
+            success == true {
             screenPluginDelegate.removeScreenPluginFromNavigationStack()
         }
     }
@@ -213,15 +219,18 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             updateIndicatorAtIndex(index: enterdValues.count)
             enterdValues.append(String(number + 1))
             if enterdValues.count == ParentLockScreenNumberLimit {
-                if enterdValues == generatedValues {
-                    self.isVlidated = true
-                    closeScreenPlugin(with: true)
-                } else {
-                    generatedValues.removeAll()
-                    generateValues()
+                let weakSelf = self
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
+                    if weakSelf.enterdValues == weakSelf.generatedValues {
+                        weakSelf.isVlidated = true
+                        weakSelf.closeScreenPlugin(with: true)
+                    } else {
+                        weakSelf.generatedValues.removeAll()
+                        weakSelf.generateValues()
+                    }
+                    weakSelf.enterdValues.removeAll()
+                    weakSelf.clearValidationIndicators()
                 }
-                enterdValues.removeAll()
-                clearValidationIndicators()
             }
         }
     }
@@ -249,6 +258,23 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             let dot = self.dotImagesCollection[index]
             dot.backgroundColor = StylesHelper.getColorForKey(key: "indicator_highlighted", from: pluginGeneralSettings)
         }
+    }
+    
+    //Support of changing between landscape and portrait background Image
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        setBackgroundImage()
+    }
+    
+    open override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        if let presentingViewController = self.presentingViewController {
+            return presentingViewController.supportedInterfaceOrientations
+        } else {
+            return .portrait
+        }
+    }
+    
+    open override var shouldAutorotate: Bool {
+        return true
     }
 }
 

@@ -86,5 +86,62 @@ class StylesHelper: NSObject {
         }
         return retVal
     }
+    
+    static private let backgroundImageIphone_568 = "parent_lock_background_image_568h"
+    static private let backgroundImageIphone_667 = "parent_lock_background_image_667h"
+    static private let backgroundImageIphone_736 = "parent_lock_background_image_736h"
+    static private let backgroundImageIphone_812 = "parent_lock_background_image_812h"
+    static private let backgroundImageIpadNonRetina_1024  = "parent_lock_background_image_landscape~ipad"
+    static private let backgroundImageIpad_1024  = "parent_lock_background_image_landscape@2x~ipad"
+    static private let backgroundImageIpad_1024_portrait  = "parent_lock_background_image_portrait@2x~ipad"
+    static private let backgroundImageIpad_1366_portrait  = "parent_lock_background_image_1366h_portrait@2x~ipad"
+    static private let backgroundImageIpad_1366 = "parent_lock_background_image_1366h@2x~ipad"
+    
+    @objc public class func localSplashImageNameForScreenSize() -> String {
+        var retVal = ""
+        
+        let devicePortraitWidth = APScreenMultiplierConverter.deviceWidth()
+        let devicePortraitHeight = APScreenMultiplierConverter.deviceHeight()
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            retVal = backgroundImageIpad_1024
+            
+            if devicePortraitWidth == 768 {
+                if UIScreen.main.scale >= 2.0 {
+                    if UIApplication.shared.statusBarOrientation.isLandscape {
+                        retVal = backgroundImageIpad_1024
+                    } else {
+                        retVal = backgroundImageIpad_1024_portrait
+                    }
+                } else {
+                    retVal = backgroundImageIpadNonRetina_1024
+                }
+            } else if devicePortraitWidth == 1024 {
+                if UIApplication.shared.statusBarOrientation.isLandscape {
+                    retVal = backgroundImageIpad_1366
+                } else {
+                    retVal = backgroundImageIpad_1366_portrait
+                }
+            }
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            retVal = backgroundImageIphone_568
+            if devicePortraitWidth == 320 {
+                let size = UIScreen.main.bounds.size
+                if size.width == 568 || size.height == 568 {
+                    retVal = backgroundImageIphone_568
+                }
+            } else if devicePortraitWidth == 375 {
+                if devicePortraitHeight == 812 {
+                    retVal = backgroundImageIphone_812
+                }
+                else {
+                    retVal = backgroundImageIphone_667
+                }
+            } else if devicePortraitWidth == 414 {
+                retVal = backgroundImageIphone_736
+            }
+        }
+        return retVal
+    }
 }
 
