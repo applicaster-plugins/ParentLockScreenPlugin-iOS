@@ -40,13 +40,13 @@
             <rect key="frame" x="0.0" y="0.0" width="730" height="539"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-Nf-JqE" userLabel="background image view" customClass="APImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="730" height="539"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-o4-kYM" userLabel="ParentLock view">
                     <rect key="frame" x="158" y="2" width="414" height="535"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-Nf-JqE" userLabel="background image view">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="535"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6R6-SB-58x" userLabel="containerImageView" customClass="UIImageView">
                             <rect key="frame" x="62" y="138" width="290" height="320"/>
                             <subviews>
@@ -305,23 +305,23 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="6R6-SB-58x" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" constant="62" id="7YG-Pf-EQt"/>
-                        <constraint firstAttribute="trailing" secondItem="xf8-Nf-JqE" secondAttribute="trailing" id="CDL-Fg-v1l"/>
-                        <constraint firstItem="xf8-Nf-JqE" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" id="I5s-as-ltW"/>
                         <constraint firstItem="6R6-SB-58x" firstAttribute="top" secondItem="K9O-Qn-pqZ" secondAttribute="bottom" constant="-27" id="Iws-Vh-GJR"/>
                         <constraint firstAttribute="width" constant="414" id="IxW-WA-7X2"/>
                         <constraint firstItem="6R6-SB-58x" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" constant="138" id="TGL-WQ-z3m"/>
                         <constraint firstItem="6R6-SB-58x" firstAttribute="centerX" secondItem="0Is-o4-kYM" secondAttribute="centerX" id="hUX-JG-iP4"/>
                         <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="6R6-SB-58x" secondAttribute="trailing" constant="-27" id="i4R-ak-Slz"/>
-                        <constraint firstItem="xf8-Nf-JqE" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" id="yfu-8B-BpA"/>
-                        <constraint firstAttribute="bottom" secondItem="xf8-Nf-JqE" secondAttribute="bottom" id="zgE-pe-K8w"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="0Is-o4-kYM" secondAttribute="centerX" id="1pN-Jg-yjp"/>
+                <constraint firstAttribute="trailing" secondItem="xf8-Nf-JqE" secondAttribute="trailing" id="Bew-BQ-6Lq"/>
+                <constraint firstItem="xf8-Nf-JqE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HLk-3o-mDN"/>
                 <constraint firstItem="0Is-o4-kYM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="2" id="KUe-jg-S2g"/>
                 <constraint firstItem="NjK-9U-TTk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Xwb-0f-EL2"/>
+                <constraint firstAttribute="bottom" secondItem="xf8-Nf-JqE" secondAttribute="bottom" id="jia-Ep-kog"/>
+                <constraint firstItem="xf8-Nf-JqE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pl5-m7-Go0"/>
                 <constraint firstItem="0Is-o4-kYM" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="vPF-Bt-l68"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

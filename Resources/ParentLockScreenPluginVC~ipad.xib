@@ -18,6 +18,7 @@
                 <outlet property="infoLabel" destination="GC2-Ra-1mC" id="HVw-HY-U8V"/>
                 <outlet property="randomNumbersLabel" destination="mYI-Sm-IUs" id="hvj-ZF-wap"/>
                 <outlet property="secondButtonsRow" destination="o0q-RG-j9P" id="yrY-Yg-lYA"/>
+                <outlet property="secondaryRandomNumbersLabel" destination="Zde-Wg-ABR" id="lGD-4V-eHV"/>
                 <outlet property="thirdButtonsRow" destination="dpa-8i-yO9" id="OEG-cf-wRi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="numberButtonsCollection" destination="cM7-gk-XuW" collectionClass="NSMutableArray" id="rcZ-ft-CbI"/>
@@ -46,9 +47,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-o4-kYM" userLabel="ParentLock view">
                     <rect key="frame" x="108" y="84" width="808" height="599"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xf8-Nf-JqE" userLabel="background image view" customClass="APImageView">
-                            <rect key="frame" x="0.0" y="0.0" width="808" height="599"/>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qS2-AP-BCU" userLabel="containerImageView" customClass="UIImageView">
                             <rect key="frame" x="264" y="139.5" width="280" height="320"/>
                             <subviews>
@@ -309,11 +307,7 @@
                         <constraint firstItem="qS2-AP-BCU" firstAttribute="top" secondItem="K9O-Qn-pqZ" secondAttribute="bottom" constant="-27" id="4VM-ei-rZH"/>
                         <constraint firstItem="qS2-AP-BCU" firstAttribute="centerY" secondItem="0Is-o4-kYM" secondAttribute="centerY" id="5EQ-lm-e8Z"/>
                         <constraint firstItem="qS2-AP-BCU" firstAttribute="centerX" secondItem="0Is-o4-kYM" secondAttribute="centerX" id="5bT-4N-ne1"/>
-                        <constraint firstAttribute="bottom" secondItem="xf8-Nf-JqE" secondAttribute="bottom" id="8dB-QM-LOr"/>
-                        <constraint firstItem="xf8-Nf-JqE" firstAttribute="leading" secondItem="0Is-o4-kYM" secondAttribute="leading" id="BWJ-iQ-AXv"/>
-                        <constraint firstItem="xf8-Nf-JqE" firstAttribute="top" secondItem="0Is-o4-kYM" secondAttribute="top" id="LdC-uS-HTf"/>
                         <constraint firstItem="K9O-Qn-pqZ" firstAttribute="leading" secondItem="qS2-AP-BCU" secondAttribute="trailing" constant="-27" id="W41-aY-9BJ"/>
-                        <constraint firstAttribute="trailing" secondItem="xf8-Nf-JqE" secondAttribute="trailing" id="pEC-Xq-40u"/>
                     </constraints>
                 </view>
             </subviews>

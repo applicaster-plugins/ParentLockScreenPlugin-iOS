@@ -69,7 +69,7 @@
 		"fields": [{
          "key": "presentation",
          "type": "hidden",
-         "initial_value": "present"
+         "initial_value": "push"
     }, {
          "key": "force_nav_bar_hidden",
          "type": "hidden",
