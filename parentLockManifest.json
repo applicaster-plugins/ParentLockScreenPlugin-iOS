@@ -7,7 +7,7 @@
 	"platform": "ios",
 	"author_name": "Roi Kedarya",
 	"author_email": "r.kedarya@applicaster.com",
-	"manifest_version": "1.0.0",
+	"manifest_version": "2.0.0",
 	"name": "Parent Lock Screen Plugin",
 	"description": "this plugin provides Parent lock screen for validation",
 	"screen": true,
@@ -16,7 +16,7 @@
 	"identifier": "ParentLockScreenPlugin",
 	"ui_builder_support": true,
 	"dependency_name": "ParentLockScreenPlugin",
-	"dependency_version": "1.0.0",
+	"dependency_version": "2.0.0",
 	"whitelisted_account_ids": [
 		"58b81cc348ab5c000939d2bd",
 		"5bab6246938ced000cbf89fd",
