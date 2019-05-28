@@ -109,7 +109,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             if let pluginStyles = pluginStyles {
                 StylesHelper.setColorforButton(button: button, key: "number_color", from: pluginStyles, for: .normal)
                 StylesHelper.setColorforButton(button: button, key: "number_color_pressed", from: pluginStyles, for: .highlighted)
-                StylesHelper.setFontforButton(button: button, fontNameKey: "font", fontSizeKey: "number_font_size", from: pluginStyles)
+                StylesHelper.setFontforButton(button: button, fontNameKey: "number_font_weight", fontSizeKey: "number_font_size", from: pluginStyles)
             }
             if let buttonNumber = numberButtonsCollection.firstIndex(of: button) {
                 button.setTitle(String(buttonNumber + 1), for: .normal)
@@ -125,11 +125,14 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         setNumberButtons()
         setInfoLabel()
         setBackgroundImage()
-        let containerBackgroundImageName = (numberOfValidationDigitsToPresent() == 3) ? "background_image_1_3" : "background_image_1_9"
-        if  let containerBackgroundImage = UIImage(named: containerBackgroundImageName) {
-            self.containerImageView.image = containerBackgroundImage
-        }
         if let pluginGeneralSettings = pluginGeneralSettings {
+            if let isVisible =  pluginGeneralSettings["background_image"] as? String,
+                isVisible.caseInsensitiveCompare("visible") == .orderedSame {
+                let containerBackgroundImageName = (numberOfValidationDigitsToPresent() == 3) ? "background_image_1_3" : "background_image_1_9"
+                if  let containerBackgroundImage = UIImage(named: containerBackgroundImageName) {
+                    self.containerImageView.image = containerBackgroundImage
+                }
+            }
             let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
             self.backgroundImageView.backgroundColor = screenBackgroundColor
         }
@@ -150,7 +153,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     
     private func setInfoLabel() {
         if let pluginStyles = pluginStyles {
-            StylesHelper.setFontforLabel(label: self.infoLabel, fontNameKey: "font", fontSizeKey: "call_for_action_text_font_size", from: pluginStyles)
+            StylesHelper.setFontforLabel(label: self.infoLabel, fontNameKey: "call_for_action_text_font_weight", fontSizeKey: "call_for_action_text_font_size", from: pluginStyles)
             StylesHelper.setColorforLabel(label: self.infoLabel, key: "call_for_action_text_color", from: pluginStyles)
         }
         infoLabel.text = localizationDelegate.localizationString(byKey: "NumbersLockInstructionsLocalizationKey", defaultString: "")
@@ -187,7 +190,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         //set font, size and color
         randomNumbersLabel.text = generatedValuesLocalizedArray.joined(separator: ", ")
         StylesHelper.setColorforLabel(label: randomNumbersLabel, key: "random_numbers_color", from: pluginStyles)
-        StylesHelper.setFontforLabel(label: randomNumbersLabel, fontNameKey: "font", fontSizeKey: "random_numbers_font_size", from: pluginStyles)
+        StylesHelper.setFontforLabel(label: randomNumbersLabel, fontNameKey: "random_numbers_font_weight", fontSizeKey: "random_numbers_font_size", from: pluginStyles)
         let localizationLanguage = APApplicasterController.sharedInstance()?.localizationLanguage
         if localizationLanguage == "en" || localizationLanguage == "en-GB" || localizationLanguage == "en-UK"{
             secondaryRandomNumbersLabel.isHidden = true
@@ -195,7 +198,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
             //set font, size and color
             secondaryRandomNumbersLabel.text = nonLocalizedGeneratedValues.joined(separator: ", ")
             StylesHelper.setColorforLabel(label: secondaryRandomNumbersLabel, key: "secondary_random_numbers_color", from: pluginStyles)
-            StylesHelper.setFontforLabel(label: secondaryRandomNumbersLabel, fontNameKey: "font", fontSizeKey: "secondary_random_numbers_font_size", from: pluginStyles)
+            StylesHelper.setFontforLabel(label: secondaryRandomNumbersLabel, fontNameKey: "secondary_random_numbers_font_weight", fontSizeKey: "secondary_random_numbers_font_size", from: pluginStyles)
         }
     }
     
