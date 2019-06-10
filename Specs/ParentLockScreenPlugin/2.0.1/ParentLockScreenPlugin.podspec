@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ParentLockScreenPlugin"
-  s.version          = '2.0.2'
+  s.version          = '2.0.1'
   s.summary          = "ParentLockScreenPlugin"
   s.description      = <<-DESC
                         plugin that provides a parent Validation before entering a specific area.

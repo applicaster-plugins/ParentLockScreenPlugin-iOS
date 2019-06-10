@@ -97,7 +97,7 @@ class StylesHelper: NSObject {
     static private let backgroundImageIpad_1366_portrait  = "parent_lock_background_image_1366h_portrait@2x~ipad"
     static private let backgroundImageIpad_1366 = "parent_lock_background_image_1366h@2x~ipad"
     
-    @objc public class func localSplashImageNameForScreenSize() -> String {
+    @objc public class func backgroundImageNameForScreenSize() -> String {
         var retVal = ""
         
         let devicePortraitWidth = APScreenMultiplierConverter.deviceWidth()
