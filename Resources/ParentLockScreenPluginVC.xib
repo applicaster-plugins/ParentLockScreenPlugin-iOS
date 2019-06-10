@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -48,7 +48,7 @@
                     <rect key="frame" x="158" y="2" width="414" height="535"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6R6-SB-58x" userLabel="containerImageView" customClass="UIImageView">
-                            <rect key="frame" x="62" y="138" width="290" height="320"/>
+                            <rect key="frame" x="62" y="138" width="290" height="338"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="od3-G7-wAq" userLabel="InfoLabel">
                                     <rect key="frame" x="30" y="50" width="230" height="17"/>
@@ -84,7 +84,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z58-YP-xUI" userLabel="DotsView">
-                                    <rect key="frame" x="128" y="119" width="34" height="10"/>
+                                    <rect key="frame" x="124" y="119" width="42" height="10"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nL6-EO-P1M" userLabel="dot1" customClass="APImageView">
                                             <rect key="frame" x="0.0" y="0.0" width="10" height="10"/>
@@ -94,14 +94,14 @@
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JjK-yt-Lvn" userLabel="dot2" customClass="APImageView">
-                                            <rect key="frame" x="12" y="0.0" width="10" height="10"/>
+                                            <rect key="frame" x="16" y="0.0" width="10" height="10"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="10" id="0h8-3B-YIa"/>
                                                 <constraint firstAttribute="width" constant="10" id="ieN-da-S4S"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jmE-We-zPl" userLabel="dot3" customClass="APImageView">
-                                            <rect key="frame" x="24" y="0.0" width="10" height="10"/>
+                                            <rect key="frame" x="32" y="0.0" width="10" height="10"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="10" id="Nwi-t2-Vzm"/>
                                                 <constraint firstAttribute="height" constant="10" id="X6Z-3A-EIK"/>
@@ -110,18 +110,18 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="34" id="GBA-xh-FdP"/>
+                                        <constraint firstItem="JjK-yt-Lvn" firstAttribute="centerX" secondItem="z58-YP-xUI" secondAttribute="centerX" id="51k-X3-MkO"/>
+                                        <constraint firstAttribute="width" constant="42" id="GBA-xh-FdP"/>
                                         <constraint firstAttribute="height" constant="10" id="Nfn-cm-1E9"/>
                                         <constraint firstItem="nL6-EO-P1M" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="top" id="XJt-3Y-h8Y"/>
                                         <constraint firstItem="jmE-We-zPl" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="top" id="ai6-gm-0yU"/>
                                         <constraint firstAttribute="trailing" secondItem="jmE-We-zPl" secondAttribute="trailing" id="eUD-Mi-ywd"/>
-                                        <constraint firstItem="JjK-yt-Lvn" firstAttribute="leading" secondItem="nL6-EO-P1M" secondAttribute="trailing" constant="2" id="nmV-Ac-rLx"/>
                                         <constraint firstItem="JjK-yt-Lvn" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="top" id="uLq-nX-PaE"/>
                                         <constraint firstItem="nL6-EO-P1M" firstAttribute="leading" secondItem="z58-YP-xUI" secondAttribute="leading" id="w9s-5L-Q5f"/>
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-9U-TTk" userLabel="Stack View vertical">
-                                    <rect key="frame" x="57" y="136" width="176" height="154"/>
+                                    <rect key="frame" x="57" y="154" width="176" height="154"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="67a-M9-S49" userLabel="Stack View horizontal 1-3">
                                             <rect key="frame" x="0.0" y="0.0" width="176" height="42"/>
@@ -277,7 +277,7 @@
                                 <constraint firstItem="od3-G7-wAq" firstAttribute="top" secondItem="6R6-SB-58x" secondAttribute="top" constant="50" id="7In-NW-huB"/>
                                 <constraint firstItem="od3-G7-wAq" firstAttribute="centerX" secondItem="6R6-SB-58x" secondAttribute="centerX" id="IMy-hg-AAh"/>
                                 <constraint firstItem="nZb-Hv-255" firstAttribute="centerX" secondItem="6R6-SB-58x" secondAttribute="centerX" id="KJh-hP-kpn"/>
-                                <constraint firstItem="NjK-9U-TTk" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="bottom" constant="7" id="O8Z-vl-k5L"/>
+                                <constraint firstItem="NjK-9U-TTk" firstAttribute="top" secondItem="z58-YP-xUI" secondAttribute="bottom" constant="25" id="O8Z-vl-k5L"/>
                                 <constraint firstItem="kIc-VC-4IB" firstAttribute="centerX" secondItem="6R6-SB-58x" secondAttribute="centerX" id="UQL-3a-oRN"/>
                                 <constraint firstItem="nZb-Hv-255" firstAttribute="top" secondItem="kIc-VC-4IB" secondAttribute="bottom" constant="2" id="bmE-i9-sQI"/>
                                 <constraint firstAttribute="bottom" secondItem="NjK-9U-TTk" secondAttribute="bottom" priority="750" constant="30" id="btU-9D-mcR"/>

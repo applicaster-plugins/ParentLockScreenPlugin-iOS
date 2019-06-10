@@ -24,7 +24,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     var vlidationType: String?
     var pluginGeneralSettings: [String : Any]?
     var pluginStyles: [String : Any]?
-    let NumbersDictionary = ["1":"One","2":"Two","3":"Three","4":"Four","5":"Five","6":"Six","7":"Seven","8":"Eight","9":"Nine"]
+    let numbersDictionary = ["1":"One","2":"Two","3":"Three","4":"Four","5":"Five","6":"Six","7":"Seven","8":"Eight","9":"Nine"]
     let localizationDelegate: ZAAppDelegateConnectorLocalizationProtocol
     let ParentLockScreenNumberLimit = 3;
     let cornerRadius: CGFloat = 0.5;
@@ -124,24 +124,25 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         setIndicatorsToMainColor()
         setNumberButtons()
         setInfoLabel()
-        setBackgroundImage()
-        if let pluginGeneralSettings = pluginGeneralSettings {
-            if let isVisible =  pluginGeneralSettings["background_image"] as? String,
-                isVisible.caseInsensitiveCompare("visible") == .orderedSame {
-                let containerBackgroundImageName = (numberOfValidationDigitsToPresent() == 3) ? "background_image_1_3" : "background_image_1_9"
-                if  let containerBackgroundImage = UIImage(named: containerBackgroundImageName) {
-                    self.containerImageView.image = containerBackgroundImage
-                }
-            }
-            let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
-            self.backgroundImageView.backgroundColor = screenBackgroundColor
+        setBackgroundType()
+        let containerBackgroundImageName = (numberOfValidationDigitsToPresent() == 3) ? "background_image_1_3" : "background_image_1_9"
+        if  let containerBackgroundImage = UIImage(named: containerBackgroundImageName) {
+            self.containerImageView.image = containerBackgroundImage
         }
     }
     
-    private func setBackgroundImage() {
-        let imageName = StylesHelper.localSplashImageNameForScreenSize()
-        if let parentLockscreenBackgroundImage = UIImage(named: imageName) {
-            self.backgroundImageView.image = parentLockscreenBackgroundImage
+    private func setBackgroundType() {
+        if let pluginGeneralSettings = pluginGeneralSettings,
+            let backgroundType =  pluginGeneralSettings["background_type"] as? String {
+            if backgroundType.caseInsensitiveCompare("image") == .orderedSame {
+                let imageName = StylesHelper.backgroundImageNameForScreenSize()
+                if let parentLockscreenBackgroundImage = UIImage(named: imageName) {
+                    self.backgroundImageView.image = parentLockscreenBackgroundImage
+                }
+            } else {
+                let screenBackgroundColor = StylesHelper.getColorForKey(key: "background_color", from: pluginGeneralSettings)
+                self.backgroundImageView.backgroundColor = screenBackgroundColor
+            }
         }
     }
     
@@ -179,7 +180,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
         for _ in 1...ParentLockScreenNumberLimit {
             let generatedValue = String(Int.random(in: 1 ... numberOfValidationDigitsToPresent()))
             generatedValues.append(generatedValue)
-            if let stringGeneratedValue = NumbersDictionary[generatedValue] {
+            if let stringGeneratedValue = numbersDictionary[generatedValue] {
                 nonLocalizedGeneratedValues.append(stringGeneratedValue)
                 let stringGeneratedValueKey = "Number\(stringGeneratedValue)"
                 if let localizedValue = self.localizationDelegate.localizationString(byKey: stringGeneratedValueKey, defaultString: stringGeneratedValue) {
@@ -265,7 +266,7 @@ class ParentLockScreenPluginVC: UIViewController,ZPPluggableScreenProtocol,ZPScr
     
     //Support of changing between landscape and portrait background Image
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        setBackgroundImage()
+        setBackgroundType()
     }
     
     open override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
