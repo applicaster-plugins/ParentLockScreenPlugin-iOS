@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ParentLockScreenPlugin"
-  s.version          = '2.0.2'
+  s.version          = '3.0.0'
   s.summary          = "ParentLockScreenPlugin"
   s.description      = <<-DESC
                         plugin that provides a parent Validation before entering a specific area.
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.xcconfig =  {
                   'ENABLE_BITCODE' => 'YES',
                   'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}"/**',
-                  'SWIFT_VERSION' => '4.2'
+                  'SWIFT_VERSION' => '5.0'
                 }
 
   s.dependency 'ZappPlugins'
