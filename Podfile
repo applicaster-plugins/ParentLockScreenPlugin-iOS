@@ -3,8 +3,9 @@ use_frameworks!
 install! 'cocoapods', :deterministic_uuids => false
 
 source 'https://cdn.cocoapods.org/'
+source 'git@github.com:applicaster/CocoaPods.git'
 source 'git@github.com:applicaster/PluginsBuilderCocoaPods.git'
-source 'git@github.com:CocoaPods/Specs.git'
+
 
 def base_pods
   pod 'ZappPlugins'
